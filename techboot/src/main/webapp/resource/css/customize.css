@@ -1,0 +1,173 @@
+@CHARSET "ISO-8859-1";
+
+ul.cs-top-categories {
+	margin: 0 -20px;
+	padding: 22px 20px 0;
+	background: #fff;
+}
+
+.dashbord {
+	line-height: 110px;
+	font-size: 18px;
+}
+
+.fa-fa-left {
+	margin-left: 22px;
+}
+
+.tablecss {
+	border-collapse: collapse;
+}
+
+.font-sw {
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+}
+
+.menu-sc {
+	/* margin-top: -22px; */
+	padding: 0px;
+	background-color: #ffc000;
+}
+
+.login-form {
+	padding: 84px 331px;
+}
+
+.fomt-menu {
+	font-weight: bold;
+}
+
+.top {
+	margin-top: 0px;
+}
+
+.co {
+	color: black;
+}
+
+.butt {
+	margin-left: 1px;
+	margin-right: 381px;
+	margin-top: 39px;
+	padding-left: 44px;
+}
+
+.log {
+	margin-bottom: -49px;
+	margin-right: 310px
+}
+
+.but {
+	margin-top: 38px;
+}
+
+.bon {
+	font-size: 15px;
+}
+
+.fafa_line_space {
+	margin-left: 3px;
+}
+
+.fafa_line_space1 {
+	margin-left: 20px;
+}
+
+.aback {
+	margin-bottom: 10px;
+	height: 1px;
+}
+
+.backb {
+	margin-bottom: 39px;
+	height: 39px;
+	color: black;
+	width: 70px;
+}
+
+.bac{
+	margin-bottom: 39px;
+	height: 39px;
+	color: black;
+	width: 116px;
+	font-weight: bold;
+	
+}
+
+.cover {
+	padding-top: 18px;
+	padding-bottom: 59px;
+	margin-top: -18px;
+}
+
+
+.f-color{
+	color: red;
+}
+
+.menubar {
+	margin-top: 140px;
+}
+
+
+.drop{
+	height: 43px;
+}
+
+
+@media screen and (max-width:764px) {
+	.menubar {
+		margin-top: 0px !important;
+	}
+	
+}
+
+
+@media screen and (max-width:764px) {
+	.wit {
+		font-size: 14px !important;
+		margin-left: 15px;
+	}
+	
+}
+
+.instructor-blkprofile {
+		padding-top: 30px;
+		padding-bottom: 10px;
+	}
+
+
+.course_imgsize{
+	width: 847.5px;
+    height: 440.133px;
+}
+
+.course-block-size{
+	height: 60px;
+}
+
+.course-list-block{
+	height: 60px;
+}
+
+@media screen and (max-width:764px) {
+	.menu-a {
+width: 100%;
+z-index: 99;}
+	
+}
+
+
+@media screen and (max-width:764px) {
+	.page-header {
+		margin-right: 159px;
+	}
+	
+	
+.company-dashboard{
+	margin-top:25px;
+}
+
+

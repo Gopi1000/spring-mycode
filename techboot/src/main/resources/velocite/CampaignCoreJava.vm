@@ -1,0 +1,214 @@
+<html>
+<head>
+<style type="text/css">
+.vm-container {
+	margin: 10px;
+}
+.vm-page-content {
+	border: 1px solid #35434E;
+	height: 105%;
+	color: #000;
+}
+
+.vm-page-content .head {
+	background-color: #35434E;
+	padding: 10px;
+	color: #FFFFFF;
+}
+
+.head .images {
+margin-left:5px;
+}
+
+.vm-page-content .body {
+	padding: 10px;
+	font-size: 12px;
+}
+.resp{
+margin: 5px 0px;
+}
+.resp h5 {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.body .cont p {
+	margin: 0 0 8px;
+	text-align: justify;
+	line-height: 20px;
+}
+
+.sub-title {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.sub-mrg-content {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 30px;
+}
+.sub-mrg-content li{
+line-height: 25px;
+}
+.btn{
+padding: 10px;
+background:  #07b107;
+color: #ffffff;
+margin: 5px;
+text-align: center;
+border-radius:3px;
+}
+.footer {
+	padding: 10px;
+	background: #fff;
+}
+.footer-reg{
+font-size: 12px;
+	color: #000;
+	font-weight: 600;
+	line-height: 20px;
+}
+.footerBottom{
+
+    font-size: 12px;
+    background-color: #35434E;
+	padding: 16px;
+	color: #FFFFFF;
+    text-align:center;
+}
+.footer .quas {
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.min-header{
+width:100%;
+height:60%;
+background-color:#676f7c;
+background-image: url(cid:jobseekerImage);
+}
+.slider-padding{
+padding-top:4%;
+padding-bottom:20%;
+
+text-align:center;
+color:white;
+font-weight:800;
+font-size: 40px;
+font-family: "Segoe UI", "wf_segoe-ui_normal", "Arial", sans-serif;
+}
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+.slider-ul{
+padding:0%;
+}
+.opening-slide{
+
+border: 1px solid #e1e1e1;
+text-align:center;
+font-weight:800;
+font-size: 16px;
+font-family: "Segoe UI", "wf_segoe-ui_normal", "Arial", sans-serif;
+}
+
+.company-logo{
+width:50px;
+height:30%;
+border:0px solid #e1e1e1;
+text-align:left;
+}
+.title-align{
+padding-bottom:4px;
+}
+.img-align{
+border:2px solid #e1e1e1;
+}
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border:1px solide #e1e1e1;
+}
+
+td{
+width:0%;
+}
+
+td, th {
+    border: 0px solid #dddddd;
+    padding-left: 7px;
+    padding-bottom:5px;
+    padding-right:3px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+</head>
+<body>
+<div class="vm-container">
+	<div class="vm-page-content" style="font-family: "Segoe UI", "wf_segoe-ui_normal", "Arial", sans-serif;">
+		<div class="head">
+			<span
+						style="background: #07b107; color: #fff; font-size: 20px !important; border-radius: 4px 4px 4px 4px; padding: 2px 6px 3px 6px; margin-right: 3px; font-weight:600">Job</span><span
+						style="background: #35434E; color: #07b107; font-size: 20px !important; font-weight:600">Desire</span>
+		</div> 
+		<div class="resp">
+				<h5>Dear ${fname},</h5>
+			</div>
+			<div class="cont">
+	<p>Thanks for registering with Jobdesire.co.uk Your account has been created successfully.</p>
+				<p><b>Please click the below link for account activation. </b></p>
+					<a href ="${url}${email}"><div class="btn" style="width:180px;">
+					Activate Your Account</div>	
+					</a>
+                    <p>Be an active member of Jobdesire.co.uk by creating your profile.</p>
+            <p><b>Profile creation enables the employer to utilize the below services offered,</b> </p>        
+                  <ul class="sub-mrg-content">
+                  <li><b>Create Sub User profile - </b> The employer can create a maximum of 10 sub users with the same accessibility that he / she has.</li>
+                   <li><b>Post a Job - </b>The employer / sub user can post a job with the listed mandatory fields.</li> 
+                    <li><b>Find Candidate - </b> The employer / sub user can search for a suitable candidate in accordance with the fields like Job Title, key skills and so on.</li>
+                    <li><b>Save Candidate - </b> The employer / sub user can save a candidate for short listing or saving it for future reference.</li>
+                    <li><b>Applied Candidate - </b>The employer / sub user can shortlist the eligible candidate.</li>
+                    <li><b>Upload Job Posts - </b> The employer / sub user can upload bulk jobs.</li>
+                    </ul>
+                    
+                    
+				
+                <div class="sub-title">Special Services :</div>
+				<ul class="sub-mrg-content">
+					
+					<li>Initial trial package for an employer is 100 days and thereon the employer has to opt for our special services to maximize their efficacy in recruiting a suitable candidate.</li>
+					<li>Our Special Services has been segregated as "Basic, Premium, Ultimate", scaling from Basic to Ultimate; please visit our product page to get elaborated information on the same.</li>
+					<li>
+                   <b> Your Search for a mine ends here. </b>
+                    
+                    </li>
+               </ul>
+            
+            <div class="footer">
+			<div class="footer-reg">
+				   Warm Regards<br />    Jobdesire.co.uk
+			</div>
+			</div>
+		</div>
+        </div>
+         <div class="footerBottom">
+                    Copyright @ 2018 Jobdesire.co.uk | All Rights Reserved
+					  
+		</div>
+	</div>
+</div>
+</body></html>

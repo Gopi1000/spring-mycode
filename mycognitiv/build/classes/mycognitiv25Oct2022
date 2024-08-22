@@ -1,0 +1,400 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.15
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema mycognitivdb
+--
+
+CREATE DATABASE IF NOT EXISTS mycognitivdb;
+USE mycognitivdb;
+
+--
+-- Definition of table `answer`
+--
+
+DROP TABLE IF EXISTS `answer`;
+CREATE TABLE `answer` (
+  `answer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `correctanswer_flag` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`answer_id`),
+  KEY `FK_answer_1` (`question_id`),
+  CONSTRAINT `FK_answer_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `answer`
+--
+
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `answer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `assign_test`
+--
+
+DROP TABLE IF EXISTS `assign_test`;
+CREATE TABLE `assign_test` (
+  `assign_test_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `test_id` int(10) unsigned DEFAULT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `isDelete` tinyint(1) unsigned NOT NULL,
+  `company_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`assign_test_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assign_test`
+--
+
+/*!40000 ALTER TABLE `assign_test` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assign_test` ENABLE KEYS */;
+
+
+--
+-- Definition of table `candidate_competancy`
+--
+
+DROP TABLE IF EXISTS `candidate_competancy`;
+CREATE TABLE `candidate_competancy` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `category_id` bigint(20) unsigned DEFAULT NULL,
+  `sub_category_id` bigint(20) unsigned DEFAULT NULL,
+  `progress` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_candidate_competancy_1` (`user_id`),
+  KEY `FK_candidate_competancy_2` (`category_id`),
+  KEY `FK_candidate_competancy_3` (`sub_category_id`),
+  CONSTRAINT `FK_candidate_competancy_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_candidate_competancy_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  CONSTRAINT `FK_candidate_competancy_3` FOREIGN KEY (`sub_category_id`) REFERENCES `subcategory` (`subcategory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `candidate_competancy`
+--
+
+/*!40000 ALTER TABLE `candidate_competancy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `candidate_competancy` ENABLE KEYS */;
+
+
+--
+-- Definition of table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `category_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) DEFAULT NULL,
+  `isDelete` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+
+
+--
+-- Definition of table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `companyName` varchar(225) NOT NULL,
+  `companyEmail` varchar(225) NOT NULL,
+  `companyContactNo` bigint(20) DEFAULT NULL,
+  `companyLocation` varchar(225) NOT NULL,
+  `companyWebsite` varchar(225) NOT NULL,
+  `isDelete` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company`
+--
+
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+
+
+--
+-- Definition of table `marked_question`
+--
+
+DROP TABLE IF EXISTS `marked_question`;
+CREATE TABLE `marked_question` (
+  `question_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`question_id`),
+  KEY `FK_marked_question_2` (`user_id`),
+  CONSTRAINT `FK_marked_question_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_marked_question_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `marked_question`
+--
+
+/*!40000 ALTER TABLE `marked_question` DISABLE KEYS */;
+/*!40000 ALTER TABLE `marked_question` ENABLE KEYS */;
+
+
+--
+-- Definition of table `professor`
+--
+
+DROP TABLE IF EXISTS `professor`;
+CREATE TABLE `professor` (
+  `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_no` bigint(20) unsigned NOT NULL,
+  `user_type` varchar(45) NOT NULL,
+  `isDelete` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `professor`
+--
+
+/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+
+
+--
+-- Definition of table `question_category_subcategory`
+--
+
+DROP TABLE IF EXISTS `question_category_subcategory`;
+CREATE TABLE `question_category_subcategory` (
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `category_id` bigint(20) unsigned DEFAULT NULL,
+  `subcategory_id` bigint(20) unsigned DEFAULT NULL,
+  KEY `FK_question_test_category_1` (`question_id`),
+  KEY `FK_question_test_category_2` (`category_id`),
+  KEY `FK_question_test_category_3` (`subcategory_id`),
+  CONSTRAINT `FK_question_test_category_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_question_test_category_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  CONSTRAINT `FK_question_test_category_3` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategory` (`subcategory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `question_category_subcategory`
+--
+
+/*!40000 ALTER TABLE `question_category_subcategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_category_subcategory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `question_competancy`
+--
+
+DROP TABLE IF EXISTS `question_competancy`;
+CREATE TABLE `question_competancy` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `total_attempts` bigint(30) unsigned DEFAULT NULL,
+  `correct_attempts` bigint(30) unsigned DEFAULT NULL,
+  `complecity` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_question_competancy_1` (`question_id`),
+  CONSTRAINT `FK_question_competancy_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `question_competancy`
+--
+
+/*!40000 ALTER TABLE `question_competancy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question_competancy` ENABLE KEYS */;
+
+
+--
+-- Definition of table `questions`
+--
+
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE `questions` (
+  `question_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question` text,
+  `questiontype` varchar(255) DEFAULT NULL,
+  `question_flag` tinyint(1) NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `questions`
+--
+
+/*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `questions` ENABLE KEYS */;
+
+
+--
+-- Definition of table `result`
+--
+
+DROP TABLE IF EXISTS `result`;
+CREATE TABLE `result` (
+  `result_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `test_type` varchar(45) DEFAULT NULL,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `user_selection` bigint(20) unsigned DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `test_id` bigint(20) unsigned DEFAULT NULL,
+  `total_timespent` varchar(45) NOT NULL,
+  `total_question` int(10) unsigned NOT NULL,
+  `testCount` int(10) unsigned NOT NULL,
+  `questionCount` int(10) unsigned NOT NULL,
+  `flag` tinyint(1) NOT NULL,
+  `answer_status` varchar(45) NOT NULL,
+  PRIMARY KEY (`result_id`),
+  KEY `FK_result_1` (`user_id`),
+  KEY `FK_result_2` (`question_id`),
+  KEY `FK_result_3` (`user_selection`) USING BTREE,
+  CONSTRAINT `FK_result_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_result_2` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_result_3` FOREIGN KEY (`user_selection`) REFERENCES `answer` (`answer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+/*!40000 ALTER TABLE `result` DISABLE KEYS */;
+/*!40000 ALTER TABLE `result` ENABLE KEYS */;
+
+
+--
+-- Definition of table `subcategory`
+--
+
+DROP TABLE IF EXISTS `subcategory`;
+CREATE TABLE `subcategory` (
+  `subcategory_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) DEFAULT NULL,
+  `subcategory` varchar(255) NOT NULL,
+  `priority` bigint(20) unsigned NOT NULL,
+  `isDelete` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`subcategory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+/*!40000 ALTER TABLE `subcategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subcategory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE `test` (
+  `test_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned DEFAULT NULL,
+  `subcategory_id` varchar(255) DEFAULT NULL,
+  `self_rate` int(10) unsigned DEFAULT NULL,
+  `total_questions` int(10) unsigned DEFAULT NULL,
+  `isDelete` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`test_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test`
+--
+
+/*!40000 ALTER TABLE `test` DISABLE KEYS */;
+/*!40000 ALTER TABLE `test` ENABLE KEYS */;
+
+
+--
+-- Definition of table `test_answer`
+--
+
+DROP TABLE IF EXISTS `test_answer`;
+CREATE TABLE `test_answer` (
+  `answer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned NOT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `test_id` bigint(20) unsigned NOT NULL,
+  `test_name` varchar(450) NOT NULL,
+  PRIMARY KEY (`answer_id`),
+  KEY `FK_text_answer_1` (`question_id`),
+  KEY `FK_text_answer_2` (`user_id`),
+  CONSTRAINT `FK_text_answer_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_text_answer_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=218 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test_answer`
+--
+
+/*!40000 ALTER TABLE `test_answer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `test_answer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone_no` bigint(20) unsigned DEFAULT NULL,
+  `user_type` varchar(45) DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `isDelete` tinyint(1) unsigned DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`user_id`,`user_name`,`password`,`email`,`phone_no`,`user_type`,`createdBy`,`isDelete`) VALUES 
+ (1,'admin','admin','admin@gmail.com',9442559268,'Admin',NULL,0);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="home.definition" template="/home-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="main.definition" template="/main-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/footer.jsp"></put-attribute>
+	</definition>
+
+	<!-- <definition name="employer.definition" template="/admin-template.jsp"> 
+		<put-attribute name="title" value=""></put-attribute> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="menu" value="/employer-menu.jsp"></put-attribute> 
+		<put-attribute name="body" value=""></put-attribute> <put-attribute name="footer" 
+		value="/footer.jsp"></put-attribute> </definition> -->
+
+	<!-- <definition name="jobseeker.definition" template="/admin-template.jsp"> 
+		<put-attribute name="title" value=""></put-attribute> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="menu" value="/jobseeker-menu.jsp"></put-attribute> 
+		<put-attribute name="body" value=""></put-attribute> <put-attribute name="footer" 
+		value="/footer.jsp"></put-attribute> </definition> -->
+
+	<definition name="admin.definition" template="/admin-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/admin-menu.jsp"></put-attribute> 
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="poup.definition" template="/poup-template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value=""></put-attribute>
+		<put-attribute name="menu" value=""></put-attribute> 
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value=""></put-attribute>
+	</definition>
+
+     <definition name="employer-view" extends="poup.definition">
+		<put-attribute name="title" value="view"></put-attribute>
+		<put-attribute name="body" value="/employer-view.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+     <definition name="employer-description" extends="poup.definition">
+		<put-attribute name="title" value="view"></put-attribute>
+		<put-attribute name="body" value="/employer-view.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="index" extends="home.definition">
+		<put-attribute name="title" value="Employee Data Form"></put-attribute>
+		<put-attribute name="body" value="/admin-sign-in.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="admin-sign-in" extends="main.definition">
+		<put-attribute name="title" value="Admin Login"></put-attribute>
+		<put-attribute name="body" value="/admin-sign-in.jsp"></put-attribute>
+	</definition>
+
+	<definition name="profile-view" extends="admin.definition">
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute>
+		<put-attribute name="body" value="/jobseeker-profile-view.jsp"></put-attribute>
+	</definition>
+	<definition name="employer-profile-view" extends="admin.definition">
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute>
+		<put-attribute name="body" value="/employer-profile-view.jsp"></put-attribute>
+	</definition>
+	
+	
+
+	<definition name="create-user" extends="admin.definition">
+		<put-attribute name="title" value="user"></put-attribute>
+		<put-attribute name="body" value="/create-user.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="verified-access-records" extends="admin.definition">
+		<put-attribute name="title" value="user"></put-attribute>
+		<put-attribute name="body" value="/verified-access-records.jsp"></put-attribute>
+	</definition>
+
+
+
+
+
+	<!-- Employer page start -->
+	<!--<definition name="employer-sign-up" extends="main.definition"> <put-attribute 
+		name="title" value="Employer Signup"></put-attribute> <put-attribute name="body" 
+		value="/employer-sign-up.jsp"></put-attribute> </definition> <definition 
+		name="employer-job-view" extends="employer.definition"> <put-attribute name="title" 
+		value="Employer Home"></put-attribute> <put-attribute name="body" value="/employer-job-view.jsp"></put-attribute> 
+		</definition> <definition name="admin_employer_job_view" extends="admin.definition"> 
+		<put-attribute name="title" value="admin Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-job-view.jsp"></put-attribute> </definition> 
+		<definition name="create-subuser" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer Create Subuser"></put-attribute> <put-attribute 
+		name="body" value="/create-subuser.jsp"></put-attribute> </definition> <definition 
+		name="view-subuser" extends="employer.definition"> <put-attribute name="title" 
+		value="Employer Subuser View"></put-attribute> <put-attribute name="body" 
+		value="/view-subuser.jsp"></put-attribute> </definition> <definition name="subuser-update-profile" 
+		extends="employer.definition"> <put-attribute name="title" value="Subuser 
+		Update Profile"></put-attribute> <put-attribute name="body" value="/subuser-update-profile.jsp"></put-attribute> 
+		</definition> <definition name="employer-report-view" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Details"></put-attribute> <put-attribute 
+		name="body" value="/employer-report-view.jsp"></put-attribute> </definition> 
+		<definition name="admin-employer-report-view" extends="admin.definition"> 
+		<put-attribute name="title" value="Employer Details"></put-attribute> <put-attribute 
+		name="body" value="/employer-report-view.jsp"></put-attribute> </definition> 
+		<definition name="create-job-alert" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker Creation"></put-attribute> <put-attribute name="body" 
+		value="/create-job-alert.jsp"></put-attribute> </definition> <definition 
+		name="employer-update-job-openings" extends="employer.definition"> <put-attribute 
+		name="title" value="employer jobview"></put-attribute> <put-attribute name="body" 
+		value="/employer-update-job-openings.jsp"></put-attribute> </definition> 
+		<definition name="clone-jobpost" extends="employer.definition"> <put-attribute 
+		name="title" value="employer clone"></put-attribute> <put-attribute name="body" 
+		value="/clone-jobpost.jsp"></put-attribute> </definition> <definition name="admin-employer-job-opening-details" 
+		extends="admin.definition"> <put-attribute name="title" value="employer details"></put-attribute> 
+		<put-attribute name="body" value="/employer-job-opening-details.jsp"></put-attribute> 
+		</definition> <definition name="employer-sign-in" extends="main.definition"> 
+		<put-attribute name="title" value="Employer Signin"></put-attribute> <put-attribute 
+		name="body" value="/employer-sign-in.jsp"></put-attribute> </definition> 
+		<definition name="employer-forget-password" extends="main.definition"> <put-attribute 
+		name="title" value="Employer Forget Password"></put-attribute> <put-attribute 
+		name="body" value="/employer-forget-password.jsp"></put-attribute> </definition> 
+		<definition name="employer-change-password" extends="main.definition"> <put-attribute 
+		name="title" value="Employer Change Password"></put-attribute> <put-attribute 
+		name="body" value="/employer-change-password.jsp"></put-attribute> </definition> 
+		<definition name="employer-activation" extends="main.definition"> <put-attribute 
+		name="title" value="Employer Activation"></put-attribute> <put-attribute 
+		name="body" value="/employer-activation.jsp"></put-attribute> </definition> 
+		<definition name="employer-home" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer Home"></put-attribute> <put-attribute name="body" 
+		value="/employer-home.jsp"></put-attribute> </definition> <definition name="view-applied-jobseekers" 
+		extends="employer.definition"> <put-attribute name="title" value="Employer 
+		Home"></put-attribute> <put-attribute name="body" value="/view-applied-jobseekers.jsp"></put-attribute> 
+		</definition> <definition name="saved-candidate-resume" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/saved-candidate-resume.jsp"></put-attribute> </definition> 
+		<definition name="employer-create-profile" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/employer-create-profile.jsp"></put-attribute> 
+		</definition> <definition name="job-opening-upload" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer upload file"></put-attribute> 
+		<put-attribute name="body" value="/job-opening-upload.jsp"></put-attribute> 
+		</definition> <definition name="admin-job-opening-upload" extends="admin.definition"> 
+		<put-attribute name="title" value="admin upload file"></put-attribute> <put-attribute 
+		name="body" value="/admin-job-opening-upload.jsp"></put-attribute> </definition> 
+		<definition name="employer-create-profile-payment" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/employer-create-profile-payment.jsp"></put-attribute> 
+		</definition> <definition name="employer-update-profile" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Update Profile"></put-attribute> 
+		<put-attribute name="body" value="/employer-update-profile.jsp"></put-attribute> 
+		</definition> <definition name="employer-profile-details" extends="employer.definition"> 
+		<put-attribute name="title" value="employer details"></put-attribute> <put-attribute 
+		name="body" value="/employer-profile-details.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-employer-profile-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Employer details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-employer-profile-details.jsp"></put-attribute> 
+		</definition> <definition name="save-resume" extends="poup.definition"> <put-attribute 
+		name="title" value="Employer details"></put-attribute> <put-attribute name="body" 
+		value="/save-resume.jsp"></put-attribute> </definition> <definition name="employer-view-candidate" 
+		extends="employer.definition"> <put-attribute name="title" value="Employer 
+		details"></put-attribute> <put-attribute name="body" value="/employer-view-candidate.jsp"></put-attribute> 
+		</definition> <definition name="saved-candidate-view" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer details"></put-attribute> <put-attribute 
+		name="body" value="/saved-candidate-view.jsp"></put-attribute> </definition> 
+		<definition name="employer-profile-view" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer details"></put-attribute> <put-attribute name="body" 
+		value="/employer-profile-view.jsp"></put-attribute> </definition> <definition 
+		name="product-confirmation" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer details"></put-attribute> <put-attribute name="body" 
+		value="/product-confirmation.jsp"></put-attribute> </definition> <definition 
+		name="shortlisted-candidate-view" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer Details"></put-attribute> <put-attribute name="body" 
+		value="/shortlisted-candidate-view.jsp"></put-attribute> </definition> <definition 
+		name="admin-shortlisted-candidate-view" extends="admin.definition"> <put-attribute 
+		name="title" value="Employer Details"></put-attribute> <put-attribute name="body" 
+		value="/shortlisted-candidate-view.jsp"></put-attribute> </definition> <definition 
+		name="my-notifications" extends="employer.definition"> <put-attribute name="title" 
+		value="Employer details"></put-attribute> <put-attribute name="body" value="/my-notifications.jsp"></put-attribute> 
+		</definition> <definition name="employer-change-password-after-login" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer details"></put-attribute> <put-attribute 
+		name="body" value="/employer-change-password-after-login.jsp"></put-attribute> 
+		</definition> <definition name="job-openings" extends="employer.definition"> 
+		<put-attribute name="title" value="Job Posting"></put-attribute> <put-attribute 
+		name="body" value="/job-openings.jsp"></put-attribute> </definition> <definition 
+		name="find-resumes" extends="employer.definition"> <put-attribute name="title" 
+		value="Search Result"></put-attribute> <put-attribute name="body" value="/find-resumes.jsp"></put-attribute> 
+		</definition> <definition name="search-jobseekers-resumes" extends="main.definition"> 
+		<put-attribute name="title" value="Search Result"></put-attribute> <put-attribute 
+		name="body" value="/search-jobseekers-resumes.jsp"></put-attribute> </definition> 
+		<definition name="employer-view-jobseeker-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Search Result"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-profile-details.jsp"></put-attribute> </definition> 
+		<definition name="find-resumes-details" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker details"></put-attribute> <put-attribute name="body" 
+		value="/find-resumes-details.jsp"></put-attribute> </definition> <definition 
+		name="admin-find-resumes-details" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker details"></put-attribute> <put-attribute name="body" 
+		value="/find-resumes-details.jsp"></put-attribute> </definition> <definition 
+		name="jobseeker-sign-up" extends="main.definition"> <put-attribute name="title" 
+		value="Jobseeker Signup"></put-attribute> <put-attribute name="body" value="/jobseeker-sign-up.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-sign-in" extends="main.definition"> 
+		<put-attribute name="title" value="Jobseeker Signin"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-sign-in.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-activation" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker Signin"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-activation.jsp"></put-attribute> </definition> <definition 
+		name="jobseeker-forget-password" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker Forget Password"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-forget-password.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-change-password" extends="main.definition"> <put-attribute 
+		name="title" value="Jobseeker Change Password"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-change-password.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-home" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Jobseeker Home"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-home.jsp"></put-attribute> </definition> <definition name="admin-jobseeker-saved-jobs" 
+		extends="admin.definition"> <put-attribute name="title" value="Jobseeker 
+		Save Jobs"></put-attribute> <put-attribute name="body" value="/jobseeker-saved-jobs.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-saved-jobs" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Save Jobs"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-saved-jobs.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker_search_job_details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Save Jobs"></put-attribute> 
+		<put-attribute name="body" value="/jobpost-details.jsp"></put-attribute> 
+		</definition> <definition name="jobpost-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Save Jobs"></put-attribute> 
+		<put-attribute name="body" value="/jobpost-details.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-applied-jobs" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Applied Jobs"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-applied-jobs.jsp"></put-attribute> 
+		</definition> <definition name="admin-jobseeker-applied-jobs" extends="admin.definition"> 
+		<put-attribute name="title" value="admin Applied Jobs"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-applied-jobs.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-applied-job-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Applied Jobs"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-applied-job-details.jsp"></put-attribute> 
+		</definition> <definition name="admin-jobseeker-applied-job-details" extends="admin.definition"> 
+		<put-attribute name="title" value="admin Applied Jobs details"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-applied-job-details.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-applied-jobs-map" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="jobseeker applied jobs map"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-applied-jobs-map.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-profile-view" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-profile-view.jsp"></put-attribute> </definition> 
+		<definition name="active-profile" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Jobseeker Home"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-activeprofile.jsp"></put-attribute> </definition> <definition 
+		name="jobseeker-jobalert-view" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Jobseeker Home"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-jobalert-view.jsp"></put-attribute> </definition> <definition 
+		name="jobseeker-create-profile" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Jobseeker Profile Creation"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-create-profile.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-validate-profile" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-validate-profile.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-create-fresher-profile" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-create-fresher-profile.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-create-jobalert" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker jobalert Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-create-jobalert.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-update-profile" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-uploadprofiles.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-update-personal" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-update-personal.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-update-educational" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-update-educational.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-update-experience" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Profile Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-update-experience.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-update-jobalert" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker JobAlert Creation"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-update-jobalert.jsp"></put-attribute> 
+		</definition> <definition name="admin-jobseeker-profile-details" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-profile-details.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-profile-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-profile-details.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-jobalert-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobalert details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-jobalert-details.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-change-password-after-login" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-change-password-after-login.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-sign-in-before" extends="poup.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-sign-in-before.jsp"></put-attribute> </definition> 
+		<definition name="my-notifications-jobseeker" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/my-notifications-jobseeker.jsp"></put-attribute> </definition> 
+		<definition name="employer-renewal-list" extends="employer.definition"> <put-attribute 
+		name="title" value="Job Posting"></put-attribute> <put-attribute name="body" 
+		value="/employer-renewal-list.jsp"></put-attribute> </definition> <definition 
+		name="banner-posting" extends="employer.definition"> <put-attribute name="title" 
+		value="Job Posting"></put-attribute> <put-attribute name="body" value="/banner-posting.jsp"></put-attribute> 
+		</definition> <definition name="job-details" extends="main.definition"> <put-attribute 
+		name="title" value="Job Posting"></put-attribute> <put-attribute name="body" 
+		value="/job-details.jsp"></put-attribute> </definition> <definition name="search_jobseeker" 
+		extends="main.definition"> <put-attribute name="title" value="Search Result"></put-attribute> 
+		<put-attribute name="body" value="/search_jobseeker.jsp"></put-attribute> 
+		</definition> <definition name="findjobs_details" extends="main.definition"> 
+		<put-attribute name="title" value="Search Result"></put-attribute> <put-attribute 
+		name="body" value="/find-jobs.jsp"></put-attribute> </definition> <definition 
+		name="search-details" extends="main.definition"> <put-attribute name="title" 
+		value="Search Result"></put-attribute> <put-attribute name="body" value="/search-details.jsp"></put-attribute> 
+		</definition> <definition name="search_jobseeker_details" extends="main.definition"> 
+		<put-attribute name="title" value="Jobseeker details"></put-attribute> <put-attribute 
+		name="body" value="/search_jobseeker_details.jsp"></put-attribute> </definition> 
+		<definition name="find_others" extends="home.definition"> <put-attribute 
+		name="title" value="Search Jobs"></put-attribute> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="body" value="/find-jobs.jsp"></put-attribute> 
+		</definition> <definition name="find-jobs" extends="main.definition"> <put-attribute 
+		name="title" value="Search Jobs"></put-attribute> <put-attribute name="body" 
+		value="/find-jobs.jsp"></put-attribute> </definition> <definition name="company-jobs" 
+		extends="main.definition"> <put-attribute name="title" value="Search Jobs"></put-attribute> 
+		<put-attribute name="body" value="/company-jobs.jsp"></put-attribute> </definition> 
+		<definition name="search-jobs" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Search Jobs"></put-attribute> <put-attribute name="body" 
+		value="/search-jobs.jsp"></put-attribute> </definition> <definition name="follower-details" 
+		extends="jobseeker.definition"> <put-attribute name="title" value="Follower 
+		Details"></put-attribute> <put-attribute name="body" value="/follower-details.jsp"></put-attribute> 
+		</definition> <definition name="job-opening-details" extends="main.definition"> 
+		<put-attribute name="title" value="Job Search Details"></put-attribute> <put-attribute 
+		name="body" value="/job-opening-details.jsp"></put-attribute> </definition> 
+		<definition name="employer-jobpost-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Jobpost"></put-attribute> <put-attribute 
+		name="body" value="/jobpost-details.jsp"></put-attribute> </definition> Search 
+		jobseeker and jobpost details page end <definition name="about_as" extends="main.definition"> 
+		<put-attribute name="title" value="about as"></put-attribute> <put-attribute 
+		name="body" value="/about_as.jsp"></put-attribute> </definition> <definition 
+		name="FAQ" extends="main.definition"> <put-attribute name="title" value="about 
+		as"></put-attribute> <put-attribute name="body" value="/FAQ.jsp"></put-attribute> 
+		</definition> <definition name="company-page" extends="main.definition"> 
+		<put-attribute name="title" value="about as"></put-attribute> <put-attribute 
+		name="body" value="/company-page.jsp"></put-attribute> </definition> <definition 
+		name="application_tracking" extends="main.definition"> <put-attribute name="title" 
+		value="application tracking"></put-attribute> <put-attribute name="body" 
+		value="/application_tracking.jsp"></put-attribute> </definition> <definition 
+		name="contact" extends="main.definition"> <put-attribute name="title" value="Admin 
+		Home"></put-attribute> <put-attribute name="body" value="/contact.jsp"></put-attribute> 
+		</definition> <definition name="feedback" extends="main.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/feedback.jsp"></put-attribute> </definition> Employer Static page 
+		start <definition name="product-services" extends="main.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/product-services.jsp"></put-attribute> </definition> <definition 
+		name="employer2-services" extends="main.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/employer2-services.jsp"></put-attribute> 
+		</definition> <definition name="payment-services" extends="main.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/payment-services.jsp"></put-attribute> </definition> 
+		<definition name="about-us" extends="main.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/about-us.jsp"></put-attribute> 
+		</definition> <definition name="contactus" extends="main.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/contactus.jsp"></put-attribute> </definition> <definition name="employer-blog" 
+		extends="main.definition"> <put-attribute name="title" value="Admin Home"></put-attribute> 
+		<put-attribute name="body" value="/employer-blog.jsp"></put-attribute> </definition> 
+		<definition name="employer-blog-single-post" extends="main.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/employer-blog-single-post.jsp"></put-attribute> </definition> <definition 
+		name="blog-single-post" extends="main.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/blog-single-post.jsp"></put-attribute> 
+		</definition> <definition name="employer-terms-privacy" extends="main.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-terms-privacy.jsp"></put-attribute> </definition> 
+		<definition name="employer_company_page" extends="main.definition"> <put-attribute 
+		name="title" value="Company Page"></put-attribute> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="body" value="/company-page.jsp"></put-attribute> 
+		</definition> Employer Static page end <definition name="admin-home" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/admin-home.jsp"></put-attribute> </definition> <definition 
+		name="meta-information" extends="admin.definition"> <put-attribute name="title" 
+		value="meta Information"></put-attribute> <put-attribute name="body" value="/meta-information.jsp"></put-attribute> 
+		</definition> <definition name="meta-Information-view" extends="admin.definition"> 
+		<put-attribute name="title" value="View meta Information"></put-attribute> 
+		<put-attribute name="body" value="/meta-Information-view.jsp"></put-attribute> 
+		</definition> <definition name="user-access-log" extends="admin.definition"> 
+		<put-attribute name="title" value="View accesslog Information"></put-attribute> 
+		<put-attribute name="body" value="/user-access-log.jsp"></put-attribute> 
+		</definition> <definition name="update-meta-information" extends="admin.definition"> 
+		<put-attribute name="title" value="update meta information"></put-attribute> 
+		<put-attribute name="body" value="/update-meta-information.jsp"></put-attribute> 
+		</definition> <definition name="admin-employer-upload" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/admin-employer-upload.jsp"></put-attribute> </definition> 
+		<definition name="admin-jobseeker-upload" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin-jobseeker-upload.jsp"></put-attribute> </definition> <definition 
+		name="create-jobseeker" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/create-jobseeker.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-report-view" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-report-view.jsp"></put-attribute> </definition> 
+		<definition name="employer-report-company" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/employer-report-company.jsp"></put-attribute> </definition> <definition 
+		name="managed-follower" extends="jobseeker.definition"> <put-attribute name="title" 
+		value="Jobseeker Home"></put-attribute> <put-attribute name="body" value="/managed-follower.jsp"></put-attribute> 
+		</definition> <definition name="admin-candidate-resume" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/saved-candidate-resume.jsp"></put-attribute> </definition> 
+		<definition name="admin-employer-applied-jobs" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/view-applied-jobseekers.jsp"></put-attribute> </definition> 
+		<definition name="bannar-posting" extends="employer.definition"> <put-attribute 
+		name="title" value="Job Posting"></put-attribute> <put-attribute name="body" 
+		value="/bannar-posting.jsp"></put-attribute> </definition> <definition name="payment-details" 
+		extends="employer.definition"> <put-attribute name="title" value="Admin Home"></put-attribute> 
+		<put-attribute name="body" value="/payment-details.jsp"></put-attribute> 
+		</definition> <definition name="payment-details1" extends="employer.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/paypal.jsp"></put-attribute> </definition> <definition 
+		name="add_payments" extends="jobseeker.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/add_payments.jsp"></put-attribute> 
+		</definition> <definition name="update-employer" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/update-employer.jsp"></put-attribute> </definition> <definition 
+		name="employer-details" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/employer-details.jsp"></put-attribute> 
+		</definition> <definition name="employer-view-details" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-view-details.jsp"></put-attribute> </definition> 
+		<definition name="admin-company-view" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin-company-view.jsp"></put-attribute> </definition> <definition 
+		name="admin-industry-view" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/admin-industry-view.jsp"></put-attribute> 
+		</definition> <definition name="admin-jobseekers" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/admin-jobseekers.jsp"></put-attribute> </definition> 
+		<definition name="renewal-admin-jobseekers" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/renewal-admin-jobseekers.jsp"></put-attribute> </definition> <definition 
+		name="notifications-alerts" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/notifications-alerts.jsp"></put-attribute> 
+		</definition> <definition name="renewal-admin-employers" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/renewal-admin-employers.jsp"></put-attribute> </definition> 
+		<definition name="admin_update_jobseeker" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin_update_jobseeker.jsp"></put-attribute> </definition> <definition 
+		name="admin-jobseeker-details" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin-jobseeker-details.jsp"></put-attribute> </definition> <definition 
+		name="admin-jobseeker-profiles" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-profile-view.jsp"></put-attribute> </definition> <definition 
+		name="jobseekers-update-profile-alert" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/jobseeker-update-profile-alert.jsp"></put-attribute> </definition> 
+		<definition name="admin_job_post" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin_job_post.jsp"></put-attribute> </definition> <definition name="renewal-bannarList" 
+		extends="admin.definition"> <put-attribute name="title" value="Banner List"></put-attribute> 
+		<put-attribute name="body" value="/renewal-bannarList.jsp"></put-attribute> 
+		</definition> <definition name="admin_jobpost_view" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/admin_jobpost_view.jsp"></put-attribute> </definition> 
+		<definition name="admin-jobpost-update" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/employer-update-job-openings.jsp"></put-attribute> </definition> 
+		<definition name="find_admin" extends="main.definition"> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="body" value="/find-jobs.jsp"></put-attribute> 
+		</definition> <definition name="admin-services" extends="main.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="header" value="/admin_header_page.jsp"></put-attribute> <put-attribute 
+		name="body" value="/jobseekers1-services.jsp"></put-attribute> </definition> 
+		<definition name="admin_about_as" extends="main.definition"> <put-attribute 
+		name="title" value="about as"></put-attribute> <put-attribute name="header" 
+		value="/admin_header.jsp"></put-attribute> <put-attribute name="body" value="/about_as.jsp"></put-attribute> 
+		</definition> <definition name="admin_company_page" extends="main.definition"> 
+		<put-attribute name="title" value="about as"></put-attribute> <put-attribute 
+		name="header" value="/admin_header.jsp"></put-attribute> <put-attribute name="body" 
+		value="/company-page.jsp"></put-attribute> </definition> <definition name="admin_contact" 
+		extends="main.definition"> <put-attribute name="title" value="Admin Home"></put-attribute> 
+		<put-attribute name="header" value="/admin_header.jsp"></put-attribute> <put-attribute 
+		name="body" value="/contact.jsp"></put-attribute> </definition> <definition 
+		name="admin_home_view" extends="main.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="header" value="/admin_header.jsp"></put-attribute> 
+		<put-attribute name="body" value="/home.jsp"></put-attribute> </definition> 
+		<definition name="admin-search-job-details" extends="admin.definition"> <put-attribute 
+		name="title" value="Job Posting"></put-attribute> <put-attribute name="header" 
+		value="/header.jsp"></put-attribute> <put-attribute name="body" value="/jobpost-details.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-view-history" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-view-history.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-renewal-alert" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-renewal-alert.jsp"></put-attribute> </definition> 
+		<definition name="create-employer" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Employee Creation"></put-attribute> <put-attribute 
+		name="body" value="/create-employer.jsp"></put-attribute> </definition> <definition 
+		name="create-product" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Employee Creation"></put-attribute> <put-attribute name="body" 
+		value="/create-product.jsp"></put-attribute> </definition> <definition name="admin-update-company-entity" 
+		extends="admin.definition"> <put-attribute name="title" value="Admin Update 
+		Company Entity"></put-attribute> <put-attribute name="body" value="/admin-update-company-entity.jsp"></put-attribute> 
+		</definition> <definition name="upload-files" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Upload Files"></put-attribute> <put-attribute 
+		name="body" value="/upload-files.jsp"></put-attribute> </definition> <definition 
+		name="view-jobseeker-enrolled-details" extends="jobseeker.definition"> <put-attribute 
+		name="title" value="Jobseeker enrolled details"></put-attribute> <put-attribute 
+		name="body" value="/view-jobseeker-enrolled-details.jsp"></put-attribute> 
+		</definition> <definition name="banner-update" extends="employer.definition"> 
+		<put-attribute name="title" value="Banner Update"></put-attribute> <put-attribute 
+		name="body" value="/banner-update.jsp"></put-attribute> </definition> <definition 
+		name="banner-details" extends="poup.definition"> <put-attribute name="title" 
+		value="Banner Details"></put-attribute> <put-attribute name="body" value="/banner-details.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-enrolled-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-enrolled-details.jsp"></put-attribute> </definition> 
+		<definition name="employer-enrolled-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-enrolled-details.jsp"></put-attribute> </definition> 
+		<definition name="view-employer-enrolled-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Jobseeker enrolled details"></put-attribute> 
+		<put-attribute name="body" value="/view-employer-enrolled-details.jsp"></put-attribute> 
+		</definition> <definition name="admin_jobseekers_payment" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker enrolled details"></put-attribute> 
+		<put-attribute name="body" value="/admin_jobseekers_payment.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-payment-details" extends="poup.definition"> 
+		<put-attribute name="title" value="Jobseeker enrolled details"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-payment-details.jsp"></put-attribute> 
+		</definition> <definition name="admin-employer-payment" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker enrolled details"></put-attribute> 
+		<put-attribute name="body" value="/admin-employer-payment.jsp"></put-attribute> 
+		</definition> <definition name="employer-payment-details" extends="poup.definition"> 
+		<put-attribute name="title" value="Jobseeker enrolled details"></put-attribute> 
+		<put-attribute name="body" value="/employer-payment-details.jsp"></put-attribute> 
+		</definition> <definition name="admin_jobseekers_history" extends="admin.definition"> 
+		<put-attribute name="title" value="Jobseeker history details"></put-attribute> 
+		<put-attribute name="body" value="/admin_jobseekers_history.jsp"></put-attribute> 
+		</definition> <definition name="employer-history" extends="admin.definition"> 
+		<put-attribute name="title" value="Employeer history details"></put-attribute> 
+		<put-attribute name="body" value="/employer-history.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-history-details" extends="admin.definition"> 
+		<put-attribute name="title" value="Employeer history details"></put-attribute> 
+		<put-attribute name="body" value="/jobseeker-history-details.jsp"></put-attribute> 
+		</definition> <definition name="admin_jobseekers_savedjobs" extends="admin.definition"> 
+		<put-attribute name="title" value="Employeer history details"></put-attribute> 
+		<put-attribute name="body" value="/admin_jobseekers_savedjobs.jsp"></put-attribute> 
+		</definition> <definition name="admin-jobseeker-saved-jobdetails" extends="admin.definition"> 
+		<put-attribute name="title" value="Employeer history details"></put-attribute> 
+		<put-attribute name="body" value="/admin-jobseeker-saved-jobdetails.jsp"></put-attribute> 
+		</definition> <definition name="jobseeker-renewal-details" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Jobseeker Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-renewal-details.jsp"></put-attribute> </definition> 
+		<definition name="employer-renewal-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-renewal-details.jsp"></put-attribute> </definition> 
+		<definition name="jobseeker-fresher-update-personal" extends="jobseeker.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/jobseeker-fresher-update-personal.jsp"></put-attribute> 
+		</definition> <definition name="admin-employer-renewal-details" extends="admin.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/employer-renewal-details.jsp"></put-attribute> </definition> 
+		<definition name="saved-list-candidate" extends="admin.definition"> <put-attribute 
+		name="title" value="Jobseeker enrolled details"></put-attribute> <put-attribute 
+		name="body" value="/saved-list-candidate.jsp"></put-attribute> </definition> 
+		<definition name="admin-employer-history" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin-employer-history.jsp"></put-attribute> </definition> <definition 
+		name="short-list-candidate" extends="employer.definition"> <put-attribute 
+		name="title" value="Jobseeker enrolled details"></put-attribute> <put-attribute 
+		name="body" value="/short-list-candidate.jsp"></put-attribute> </definition> 
+		<definition name="admin-applied-jobdetails" extends="admin.definition"> <put-attribute 
+		name="title" value="Applied job details"></put-attribute> <put-attribute 
+		name="body" value="/admin-applied-jobdetails.jsp"></put-attribute> </definition> 
+		<definition name="view-product" extends="admin.definition"> <put-attribute 
+		name="title" value="viewProduct"></put-attribute> <put-attribute name="body" 
+		value="/view-product.jsp"></put-attribute> </definition> <definition name="product-update" 
+		extends="admin.definition"> <put-attribute name="title" value="productUpdate"></put-attribute> 
+		<put-attribute name="body" value="/product-update.jsp"></put-attribute> </definition> 
+		<definition name="employer-payment-confirmation" extends="employer.definition"> 
+		<put-attribute name="title" value="productUpdate"></put-attribute> <put-attribute 
+		name="body" value="/employer-payment-confirmation.jsp"></put-attribute> </definition> 
+		<definition name="view-contact" extends="admin.definition"> <put-attribute 
+		name="title" value="viewContact"></put-attribute> <put-attribute name="body" 
+		value="/view-contact.jsp"></put-attribute> </definition> <definition name="view-contact-details" 
+		extends="admin.definition"> <put-attribute name="title" value="viewcontactdetails"></put-attribute> 
+		<put-attribute name="body" value="/view-contact-details.jsp"></put-attribute> 
+		</definition> <definition name="view-feedback" extends="admin.definition"> 
+		<put-attribute name="title" value="viewContact"></put-attribute> <put-attribute 
+		name="body" value="/view-feedback.jsp"></put-attribute> </definition> <definition 
+		name="view-feedback-details" extends="admin.definition"> <put-attribute name="title" 
+		value="viewcontactdetails"></put-attribute> <put-attribute name="body" value="/view-feedback-details.jsp"></put-attribute> 
+		</definition> <definition name="admin-short-list-candidate" extends="admin.definition"> 
+		<put-attribute name="title" value="Short list Details"></put-attribute> <put-attribute 
+		name="body" value="/short-list-candidate.jsp"></put-attribute> </definition> 
+		=========Walkin Jobs============= <definition name="admin_walkin_post" extends="admin.definition"> 
+		<put-attribute name="title" value="Admin Home"></put-attribute> <put-attribute 
+		name="body" value="/admin_walkin_post.jsp"></put-attribute> </definition> 
+		<definition name="admin_walkinjob_view" extends="admin.definition"> <put-attribute 
+		name="title" value="Admin Home"></put-attribute> <put-attribute name="body" 
+		value="/admin_walkinjob_view.jsp"></put-attribute> </definition> <definition 
+		name="admin_walkin_update" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/admin_walkin_update.jsp"></put-attribute> 
+		</definition> <definition name="walking-profile-creation" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Home"></put-attribute> <put-attribute 
+		name="body" value="/walking-profile-creation.jsp"></put-attribute> </definition> 
+		<definition name="walkin-job-view" extends="employer.definition"> <put-attribute 
+		name="title" value="Employer Home"></put-attribute> <put-attribute name="body" 
+		value="/walkin-job-view.jsp"></put-attribute> </definition> <definition name="admin-walkin-job-view" 
+		extends="admin.definition"> <put-attribute name="title" value="Admin Home"></put-attribute> 
+		<put-attribute name="body" value="/walkin-job-view.jsp"></put-attribute> 
+		</definition> <definition name="walking-job-opening-details" extends="employer.definition"> 
+		<put-attribute name="title" value="Walkin Details"></put-attribute> <put-attribute 
+		name="body" value="/walking-job-opening-details.jsp"></put-attribute> </definition> 
+		Waiting To Testing <definition name="admin-walking-job-opening-details" extends="admin.definition"> 
+		<put-attribute name="title" value="admin Walkin Details"></put-attribute> 
+		<put-attribute name="body" value="/walking-job-opening-details.jsp"></put-attribute> 
+		</definition> <definition name="walking-update-job-openings" extends="employer.definition"> 
+		<put-attribute name="title" value="Walkin Details"></put-attribute> <put-attribute 
+		name="body" value="/walking-update-job-openings.jsp"></put-attribute> </definition> 
+		<definition name="walking-job-openings" extends="main.definition"> <put-attribute 
+		name="title" value="Walkin Details"></put-attribute> <put-attribute name="body" 
+		value="/walking-job-openings.jsp"></put-attribute> </definition> <definition 
+		name="view-login-status" extends="admin.definition"> <put-attribute name="title" 
+		value="Admin Home"></put-attribute> <put-attribute name="body" value="/view-login-status.jsp"></put-attribute> 
+		</definition> <definition name="walking-search-details" extends="main.definition"> 
+		<put-attribute name="title" value="Walkin Posting"></put-attribute> <put-attribute 
+		name="body" value="/walking-search-details.jsp"></put-attribute> </definition> 
+		==========WalkinEnd================ <definition name="shortlisted-candidate" 
+		extends="employer.definition"> <put-attribute name="title" value="ShortList 
+		Candidate"></put-attribute> <put-attribute name="body" value="/shortlisted-candidate.jsp"></put-attribute> 
+		</definition> <definition name="resume-shortlisted-candidate" extends="employer.definition"> 
+		<put-attribute name="title" value="Save to ShortList Candidate"></put-attribute> 
+		<put-attribute name="body" value="/resume-shortlisted-candidate.jsp"></put-attribute> 
+		</definition> <definition name="shortlisted-candidate-view" extends="employer.definition"> 
+		<put-attribute name="title" value="Employer Details"></put-attribute> <put-attribute 
+		name="body" value="/shortlisted-candidate-view.jsp"></put-attribute> </definition> -->
+</tiles-definitions> 

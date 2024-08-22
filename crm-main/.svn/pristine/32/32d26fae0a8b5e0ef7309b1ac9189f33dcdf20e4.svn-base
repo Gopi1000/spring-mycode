@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+package com.myclients.myjobkart.dao;
+
+import com.myclients.myjobkart.vo.CompanyVO;
+import com.myclients.myjobkart.vo.EmployerLoginVO;
+import com.myclients.myjobkart.vo.EmployerVO;
+
+/**
+ * @author User
+ *
+ */
+public interface EmployerclientDao {
+
+	/**
+	 * @param vO
+	 * @return
+	 */
+	EmployerVO clientTomyjobkartRegister(EmployerVO VO);
+
+	/**
+	 * @param loginVO
+	 * @return
+	 */
+	EmployerLoginVO signinTomyjobkart(EmployerLoginVO loginVO);
+
+	/**
+	 * @param company 
+	 * @return
+	 */
+	CompanyVO retrieveCompany(String company);
+
+	
+
+	/**
+	 * @param companyVO
+	 * @return
+	 */
+	long addnewcompany(CompanyVO companyVO);
+	
+	
+	
+
+}

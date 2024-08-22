@@ -1,0 +1,129 @@
+<html>
+<head>
+<style type="text/css">
+.vm-container {
+	margin: 10px;
+}
+.vm-page-content {
+	border: 1px solid #2a3f54;
+	height: 150%;
+	color: #000;
+}
+
+.vm-page-content .head {
+	background-color: #2a3f54;
+	padding: 10px;
+	color: #FFFFFF;
+}
+
+.head .images {
+	margin-left: 10px;
+}
+
+.vm-page-content .body {
+	padding: 10px;
+	font-size: 12px;
+}
+.resp{
+margin: 5px 0px;
+}
+.resp h5 {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.body .cont p {
+	margin: 0 0 8px;
+	text-align: justify;
+	line-height: 20px;
+}
+
+.sub-title {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.sub-mrg-content {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 30px;
+}
+.sub-mrg-content li{
+line-height: 25px;
+}
+.btn{
+padding: 10px;
+background:  #2a3f54;
+color: #ffffff;
+margin: 5px;
+text-align: center;
+border-radius:3px;
+}
+.footer {
+	padding: 10px;
+	background: #fff;
+}
+.footer-reg{
+font-size: 12px;
+	color: #000;
+	font-weight: 600;
+	line-height: 20px;
+}
+.footer .quas {
+	margin-top: 20px;
+	font-size: 12px;
+}
+</style>
+</head>
+<body>
+<div class="vm-container">
+	<div class="vm-page-content">
+		<div class="head">
+			<div class="images">
+				<img src="cid:imagess"alt="MyJobKart"/>
+			</div>
+		</div>
+		<div class="body">
+			<div class="resp">
+				<h5>Dear ${fname},</h5>
+			</div>
+			<div class="cont">
+				<p>Thanks for registering with MyJobKart.com. Your account has been created successfully.</p>
+				<p>Please click the below link for account activation. </p>
+					<a href ="${url}${email}"><div class="btn" style="width:180px;">
+					Activate Your Account</div>
+					</a>
+                    <p>Be an active member of MyJobKart.com by creating your profile.</p>
+            <p>Profile creation enables the employer to utilize the below services offered, </p>        
+                  <ul class="sub-mrg-content">
+                  <li>Create Sub User profile- The employer can create a maximum of 10 sub users with the same accessibility that he/she has.</li>
+                   <li>Post a Job- The employer/sub user can post a job with the listed mandatory fields.</li> 
+                    <li>Post a walk in- The employer/sub user can post a walk in job.</li>
+                    <li>Find Candidate- The employer/sub user can search for a suitable candidate in accordance with the fields like Job Title, key skills and so on.</li>
+                    <li>Save Candidate- The employer/sub user can save a candidate for short listing or saving it for future reference.</li>
+                    <li>Applied Candidate- The employer/sub user can shortlist the eligible candidate.</li>
+                    <li>Upload Job Posts- The employer/sub user can upload bulk jobs.</li>
+                    </ul>
+                       
+				<div class="sub-title">Special Services :</div>
+				<ul class="sub-mrg-content">
+					<li>Initial trial package for an employer is 10 days and thereon the employer has to opt for our special services to maximize their efficacy in recruiting a suitable candidate.</li>
+					<li>Your Special Services has been segregated in " VIBGYOR" manner, scaling from Violet to Red; please visit our product page to get elaborated information on the same.</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+        <div class="footer-reg">
+        Your Search for a mine ends here.</div>
+			<div class="footer-reg">
+				Warm Regards<br /> MyJobKart.com
+			</div>
+			<div class="quas">
+				For more clarifications, ping us at  <b>info@myjobkart.com</b>
+			</div>
+		</div>
+	</div>
+</div>
+</body></html>

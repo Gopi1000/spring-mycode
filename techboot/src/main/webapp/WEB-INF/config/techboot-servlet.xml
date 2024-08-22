@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		 http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+	<mvc:annotation-driven />
+	<context:annotation-config />
+	<mvc:resources mapping="/resource/**" location="/resource/" />
+	<context:component-scan base-package="com.scube.techboot" />
+	<context:property-placeholder location="classpath:techboot.properties" />
+	<mvc:resources mapping="/sitemap.xml" location="/WEB-INF/" />
+
+	 <bean id="applicationContextProvder" class="com.scube.techboot.controller.ApplicationContextProvider"/> 
+		 
+	<bean id="jacksonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jacksonMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	
+	 <bean id="customRequestHandler" class="com.scube.techboot.interceptor.TechbootRequestHandler"></bean>
+    	 <bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="customRequestHandler" />
+			</list>
+		</property>
+	</bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<ref bean="customRequestHandler" />
+		</mvc:interceptor>
+	</mvc:interceptors> 
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="50000000" />
+	</bean>
+	
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles3.TilesView
+			</value>
+		</property>
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/config/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+			</props>
+		</property>
+		<property name="resourceLoaderPath">
+                <value>classpath:velocity</value>
+        </property>
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="email-smtp.eu-west-1.amazonaws.com" />
+		<!-- <property name="port" value="587" /> -->
+		<property name="username" value="AKIAINYFVDNL3HMQ34PA" />
+		<property name="password" value="BK5ZPanTV0GWGij90M54mBu/z1ZkRVhXyZYc0mHC7XBA" />
+		<!-- <property name="defaultEncoding" value="UTF-8" /> -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<!-- <prop key="mail.smtp.ssl.enable">true</prop> -->
+				<prop key="mail.debug">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>sucessMessages</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" /><!-- 
+			com.mysql.jdbc.Driver // com.mysql.cj.jdbc.Driver -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="annotatedClasses"> -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.scube.techboot.vo</value>
+				
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.search.default.indexBase">${hibernate.search.default.indexBase}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+				<!-- <prop key="hibernate.show_sql">${hibernate.show_sql}</prop> -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!-- <prop key="hibernate.search.default.directory_provider">${hibernate.search.default.directory_provider}</prop> 
+					<prop key="hibernate.search.default.indexBase">${hibernate.search.default.indexBase}</prop> -->
+
+			</props>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+
+
+
+</beans>

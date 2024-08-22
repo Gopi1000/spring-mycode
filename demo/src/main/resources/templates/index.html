@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div align="center">
+		<h1>SpringBoot CRUD Operation</h1>
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<h3>
+					<a class="nav-link active" aria-current="page"
+						href="customer-create">Add New</a>
+				</h3>
+			</li>
+
+		</ul>
+
+		<div class="panel-body" align="center">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>email</th>
+						<th>Address</th>
+						<th>MobileNo</th>
+						<th>Password</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="customer:${listcustomer}">
+						<td th:text="${customer.customerId}">ID</td>
+						<td th:text="${customer.customerName}">Name</td>
+						<td th:text="${customer.emailid}">email</td>
+						<td th:text="${customer.address}">Address</td>
+						<td th:text="${customer.mobileNo}">MobileNo</td>
+						<td th:text="${customer.password}">Password</td>
+						<td><a th:href="@{'/edit/' + ${customer.customerId}}">Edit</a></td>
+						<td><a th:href="@{'/delete/' + ${customer.customerId}}">Delete</a></td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

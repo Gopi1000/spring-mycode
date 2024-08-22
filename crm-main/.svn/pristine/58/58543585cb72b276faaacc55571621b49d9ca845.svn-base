@@ -1,0 +1,42 @@
+
+# For SMTP server configuration.
+#smtp.server=smtp.gmail.com
+#smtp.email=myjobkart.portal@gmail.com
+#smtp.pwd=Myjobkart@2017
+#smtp.port=587
+#smtp.true=true
+
+# For Database conectivity
+jdbc.driverClassName = com.mysql.jdbc.Driver
+jdbc.url = jdbc\:mysql\://localhost\:3306/myclienttest2
+jdbc.username =root
+jdbc.password = admin
+remove.abandoned=true
+initial.size=10
+max.total=40
+max.idle=5
+min.idle=2
+hibernate.dialect = org.hibernate.dialect.MySQLDialect
+hibernate.show_sql = true
+hibernate.search.default.directory_provider=filesystem
+hibernate.search.default.indexBase=/usr/local/myjobkart
+#hibernate.format_sql = true
+#hibernate.hbm2ddl.auto=update
+
+
+
+jobkart.jdbc.driverClassName = com.mysql.jdbc.Driver
+jobkart.jdbc.url = jdbc\:mysql\://localhost\:3306/myjobkartprod2
+jobkart.jdbc.username = root
+jobkart.jdbc.password = admin
+jobkart.remove.abandoned=true
+jobkart.initial.size=10
+jobkart.max.total=40
+jobkart.max.idle=5
+jobkart.min.idle=2
+jobkart.hibernate.search.default.directory_provider=filesystem
+jobkart.hibernate.search.default.indexBase=/usr/local/myjobkart
+jobkart.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+jobkart.hibernate.show_sql = true
+
+

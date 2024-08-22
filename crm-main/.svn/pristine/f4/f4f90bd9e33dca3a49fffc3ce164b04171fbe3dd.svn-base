@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package com.myclients.myjobkart.service;
+
+import com.myclients.myjobkart.vo.EmployerLoginVO;
+import com.myjobkart.bo.EmployerRegisterBO;
+import com.myjobkart.vo.EmployerVO;
+
+/**
+ * @author User
+ *
+ */
+public interface Employerclientservice {
+
+	
+	EmployerRegisterBO clientTomyjobkartRegister(EmployerRegisterBO employerRegisterBO);
+
+	/**
+	 * @param bO
+	 * @return
+	 */
+	EmployerLoginVO signinTomyjobkart(EmployerRegisterBO BO);
+
+	/**
+	 * @param employerRegisterBO
+	 */
+	
+	
+	
+
+}

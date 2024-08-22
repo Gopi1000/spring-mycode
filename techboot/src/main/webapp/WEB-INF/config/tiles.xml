@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+
+	<definition name="base.definition" template="/jsp/common/main_template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+		<!-- <put-attribute name="footer" value="/footer.jsp"></put-attribute> -->
+	</definition>
+
+	<definition name="admin.definition" template="/jsp/common/admin_template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/admin-header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/jsp/menu/admin_menu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="home.definition" template="/jsp/common/home_template.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/jsp/common/home-header.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/jsp/common/footer.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="home2" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/home2.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="events-list" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/events-list.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="blog" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/blog.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="contact" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/contact.jsp"></put-attribute>
+	</definition>
+
+	<definition name="register-company" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/register-company.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="home" extends="base.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin-home" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/admin-home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="company-home" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/company-home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="sign-in" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/sign-in.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-message" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/message/create-message.jsp"></put-attribute>
+	</definition>
+	<definition name="view-message" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/message/view-message.jsp"></put-attribute>
+	</definition>
+	<definition name="edit-message" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/message/edit-message.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-customer" extends="admin.definition">
+		<put-attribute name="title" value="Create-Customer"></put-attribute>
+		<put-attribute name="body" value="/jsp/customer/create-customer.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="view-customer" extends="admin.definition">
+		<put-attribute name="title" value="View-Customer"></put-attribute>
+		<put-attribute name="body" value="/jsp/customer/view-customer.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="edit-customer" extends="admin.definition">
+		<put-attribute name="title" value="View-Customer"></put-attribute>
+		<put-attribute name="body" value="/jsp/customer/edit-customer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="customer-viewdetails" extends="admin.definition">
+		<put-attribute name="title" value="View-Customer"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/customer/view-customer-details.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="create-service" extends="admin.definition">
+		<put-attribute name="title" value="Create-Service"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/service/create-productservice.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-service" extends="admin.definition">
+		<put-attribute name="title" value="List-Service"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/service/view-productservice.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-service" extends="admin.definition">
+		<put-attribute name="title" value="Editt-Service"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/service/edit-productservice.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="create-company" extends="admin.definition">
+		<put-attribute name="title" value="create-company"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/create_company.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-company" extends="admin.definition">
+		<put-attribute name="title" value="view-company"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/view-company.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-companydetails" extends="admin.definition">
+		<put-attribute name="title" value="view-company"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/company/view-companydetails.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-campaign" extends="admin.definition">
+		<put-attribute name="title" value="view-company"></put-attribute>
+		<put-attribute name="body" value="/jsp/campaign/edit-campaign.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="edit-company" extends="admin.definition">
+		<put-attribute name="title" value="edit-company"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/edit-company.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-campaign" extends="admin.definition">
+		<put-attribute name="title" value="create-campaign"></put-attribute>
+		<put-attribute name="body" value="/jsp/campaign/create-campaign.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-campaign" extends="admin.definition">
+		<put-attribute name="title" value="view-campaignp"></put-attribute>
+		<put-attribute name="body" value="/jsp/campaign/view-campaign.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-campaign-details" extends="admin.definition">
+		<put-attribute name="title" value="view-campaignp"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/campaign/view-campaign-details.jsp"></put-attribute>
+	</definition>
+	<definition name="view-servicedetails" extends="admin.definition">
+		<put-attribute name="title" value="view-servicedetails"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/service/view-service-details.jsp"></put-attribute>
+	</definition>
+	<!-- -->
+	<definition name="view-company-user" extends="admin.definition">
+		<put-attribute name="title" value="view-companyuserdetails"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/view-company-user.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-testimonial" extends="admin.definition">
+		<put-attribute name="title" value="create-testimonial"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/testimonial/create-testimonial.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-testimonial" extends="admin.definition">
+		<put-attribute name="title" value="view-testimonial"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/testimonial/view-testimonial.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-contact" extends="admin.definition">
+		<put-attribute name="title" value="view-contact"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/view-contact.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view" extends="admin.definition">
+		<put-attribute name="title" value="view"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/view.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="editcontact" extends="admin.definition">
+		<put-attribute name="title" value="editcontact"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/editcontact.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-contact" extends="admin.definition">
+		<put-attribute name="title" value="edit-contact"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/edit-contact.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="view-contact-details" extends="admin.definition">
+		<put-attribute name="title" value="view-contact-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/common/view-contact-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-testimonial" extends="admin.definition">
+		<put-attribute name="title" value="edit-testimonial"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/testimonial/edit-testimonial.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-testimonial-details" extends="admin.definition">
+		<put-attribute name="title" value="view-testimonial-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/testimonial/view-testimonial-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="events-list" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/events-list.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-event" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/create-event.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-event" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/view-event.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-event" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/edit-event.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="event-viewdetails" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/view-event-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-recentNews" extends="admin.definition">
+		<put-attribute name="title" value="create-recentNews"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/recentnews/create-recentnews.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-recentNews" extends="admin.definition">
+		<put-attribute name="title" value="view-testimonial"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/recentnews/view-recentnews.jsp"></put-attribute>
+	</definition>
+
+	<definition name="recentNews-list" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/recentnews/recentNews-list.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-recentNews" extends="admin.definition">
+		<put-attribute name="title" value="edit-recentNews"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/recentnews/edit-recentnews.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-recentNews-details" extends="admin.definition">
+		<put-attribute name="title" value="view-recentnews-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/recentnews/view-recentnews-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="event-register" extends="home.definition">
+		<put-attribute name="title" value="event-register"></put-attribute>
+		<put-attribute name="body" value="/jsp/events/register-event.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-register-event" extends="admin.definition">
+		<put-attribute name="title" value="view-register-event"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/events/view-event-registration.jsp"></put-attribute>
+	</definition>
+
+	<definition name="event-registration-details" extends="admin.definition">
+		<put-attribute name="title" value="event-registration-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/events/event-registration-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-course" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/create-course.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-course" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/view-course.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-details-course" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-details-course.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-course" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/edit-course.jsp"></put-attribute>
+	</definition>
+
+	<definition name="courses-list" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/courses-list.jsp"></put-attribute>
+	</definition>
+
+	<!-- <definition name="course-url1" extends="home.definition"> <put-attribute 
+		name="title" value="Home"></put-attribute> <put-attribute name="body" value="/jsp/courses/course-url1.jsp"></put-attribute> 
+		</definition> -->
+	<!-- <definition name="course-url2" extends="home.definition"> <put-attribute 
+		name="title" value="Home"></put-attribute> <put-attribute name="body" value="/jsp/courses/course-url2.jsp"></put-attribute> 
+		</definition> -->
+	<!-- <definition name="course-url3" extends="home.definition"> <put-attribute 
+		name="title" value="Home"></put-attribute> <put-attribute name="body" value="/jsp/courses/course-url3.jsp"></put-attribute> 
+		</definition> -->
+
+	<!-- <definition name="course-url4" extends="home.definition"> <put-attribute 
+		name="title" value="Home"></put-attribute> <put-attribute name="body" value="/jsp/courses/course-url4.jsp"></put-attribute> 
+		</definition> -->
+	<!-- <definition name="course-details" extends="home.definition"> <put-attribute 
+		name="title" value="Home"></put-attribute> <put-attribute name="body" value="/jsp/courses/course-details.jsp"></put-attribute> 
+		</definition> -->
+	<definition name="register-course" extends="home.definition">
+		<put-attribute name="title" value="course-register"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/register-course.jsp"></put-attribute>
+	</definition>
+	<definition name="view-course-registration" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-course-registration.jsp"></put-attribute>
+	</definition>
+	<definition name="view-course-details" extends="admin.definition">
+		<put-attribute name="title" value="view-course-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-course-details.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="edit_course_registration" extends="admin.definition">
+		<put-attribute name="title" value="edit_course_registration"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/edit_course_registration.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-course-details" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/create-course-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-courseDetails" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/edit-courseDetails.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-courseDetails-details" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-details-coursedeatils.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-course-registration-details" extends="admin.definition">
+		<put-attribute name="title" value="view-course-registration-details"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-course-registration-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="course-details" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/courses/course-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-Sms-Tracking" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/view-sms-tracking.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="view-smstracking-details" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/common/view-smstracking-details.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-course-category" extends="admin.definition">
+		<put-attribute name="title" value="Create-Customer"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/create-course-category.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="view-course-category" extends="admin.definition">
+		<put-attribute name="title" value="Create-Customer"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/view-course-category.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-course-category" extends="admin.definition">
+		<put-attribute name="title" value="Create-Customer"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/courses/edit-course-category.jsp"></put-attribute>
+	</definition>
+
+	<definition name="about-us" extends="home.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/common/about-us.jsp"></put-attribute>
+	</definition>
+
+
+
+	<definition name="student-register" extends="home.definition">
+		<put-attribute name="title" value="student-sign-up"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/student-register.jsp"></put-attribute>
+	</definition>
+
+	<definition name="student-home" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/student-home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-Student" extends="admin.definition">
+		<put-attribute name="title" value="Home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/view-student.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="create-course-enrollment" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/create-course-enrollment.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-course-enrollment" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/view-course-enrollment.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-course-enrollment" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/edit-course-enrollment.jsp"></put-attribute>
+	</definition>
+
+	<definition name="student-general-reporting" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/student-general-reporting.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="student-report" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/student-report.jsp"></put-attribute>
+	</definition>
+	<definition name="feedback" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/feedback.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-feedback" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/view-feedback.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-feedback" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body" value="/jsp/student/edit-feedback.jsp"></put-attribute>
+	</definition>
+
+
+	<definition name="student-register-admin" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/student-register-admin.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-student-register" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/edit-student-register.jsp"></put-attribute>
+	</definition>
+
+	<definition name="view-student-register" extends="admin.definition">
+		<put-attribute name="title" value="student-home"></put-attribute>
+		<put-attribute name="body"
+			value="/jsp/student/view-student-register.jsp"></put-attribute>
+	</definition>
+
+	<definition name="list-users" extends="admin.definition">
+		<put-attribute name="title" value="list-users"></put-attribute>
+		<put-attribute name="body" value="/jsp/user/list-users.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit_company_user" extends="admin.definition">
+		<put-attribute name="title" value="edit_company_user"></put-attribute>
+		<put-attribute name="body" value="/jsp/company/edit_company_user.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin-profile" extends="admin.definition">
+		<put-attribute name="title" value="admin-profile"></put-attribute>
+		<put-attribute name="body" value="/jsp/user/admin-profile.jsp"></put-attribute>
+	</definition>
+
+	<definition name="edit-user" extends="admin.definition">
+		<put-attribute name="title" value="edit-user"></put-attribute>
+		<put-attribute name="body" value="/jsp/user/edit-user.jsp"></put-attribute>
+	</definition>
+
+	<definition name="create-category" extends="admin.definition">
+		<put-attribute name="title" value="create-category"></put-attribute>
+		<put-attribute name="body" value="/jsp/category/create_category.jsp"></put-attribute>
+	</definition>
+	<definition name="view-category" extends="admin.definition">
+		<put-attribute name="title" value="view-category"></put-attribute>
+		<put-attribute name="body" value="/jsp/category/view_category.jsp"></put-attribute>
+	</definition>
+	<definition name="edit-category" extends="admin.definition">
+		<put-attribute name="title" value="edit-category"></put-attribute>
+		<put-attribute name="body" value="/jsp/category/edit_category.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="create-subcategory" extends="admin.definition">
+		<put-attribute name="title" value="create-subcategory"></put-attribute>
+		<put-attribute name="body" value="/jsp/subcategory/create-subcategory.jsp"></put-attribute>
+	</definition>
+	<definition name="view-subcategory" extends="admin.definition">
+		<put-attribute name="title" value="view-subcategory"></put-attribute>
+		<put-attribute name="body" value="/jsp/subcategory/view-subcategory.jsp"></put-attribute>
+	</definition>
+	<definition name="edit-subcategory" extends="admin.definition">
+		<put-attribute name="title" value="edit-subcategory"></put-attribute>
+		<put-attribute name="body" value="/jsp/subcategory/edit-subcategory.jsp"></put-attribute>
+	</definition>
+
+	<definition name="add_questions" extends="admin.definition">
+		<put-attribute name="title" value="add_questions" />
+		<put-attribute name="body" value="/jsp/Questions/add_questions.jsp" />
+	</definition>
+
+
+	<definition name="view-addQuestions" extends="admin.definition">
+		<put-attribute name="title" value="view-addQuestions" />
+		<put-attribute name="body"
+			value="/jsp/Questions/view-addQuestions.jsp" />
+	</definition>
+
+	<definition name="edit-Questions" extends="admin.definition">
+		<put-attribute name="title" value="edit-Questions" />
+		<put-attribute name="body" value="/jsp/Questions/edit-Questions.jsp" />
+	</definition>
+	
+	<definition name="view-Questions-details" extends="admin.definition">
+		<put-attribute name="title" value="view-Questions-details" />
+		<put-attribute name="body"
+			value="/jsp/Questions/view-Questions-details.jsp" />
+	</definition>
+	
+</tiles-definitions>

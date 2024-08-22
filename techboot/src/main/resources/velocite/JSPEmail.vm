@@ -1,0 +1,124 @@
+<html>
+<head>
+<style type="text/css">
+.vm-container {
+	margin: 10px;
+	font-family: 'Open Sans',sans-serif;
+}
+.vm-page-content {
+	border: 1px solid #35434E;
+	height: 60%;
+	color: #000;
+}
+
+.vm-page-content .head {
+	background-color: #35434E;
+	padding: 10px;
+	color: #FFFFFF;
+}
+
+.head .images {
+	margin-left: 10px;
+}
+
+.vm-page-content .body {
+	padding: 10px;
+	font-size: 12px;
+}
+.resp{
+margin: 5px 0px;
+}
+.resp h5 {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.body .cont p {
+	margin: 0 0 8px;
+	text-align: justify;
+	line-height: 20px;
+}
+
+.sub-title {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.sub-mrg-content {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 30px;
+}
+.sub-mrg-content li{
+line-height: 25px;
+}
+.btn{
+padding: 10px;
+background:  #07b107;
+color: #ffffff;
+margin: 5px;
+text-align: center;
+border-radius:3px;
+}
+.footer {
+	padding: 10px;
+	background: #fff;
+}
+.footer-reg{
+font-size: 12px;
+	color: #000;
+	font-weight: 600;
+	line-height: 20px;
+}
+.footer .quas {
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.footerBottom{
+
+    font-size: 12px;
+    background-color: #35434E;
+	padding: 16px;
+	color: #FFFFFF;
+}
+</style>
+</head>
+<body>
+<div class="vm-container">
+	<div class="vm-page-content" style="font-family: "Segoe UI", "wf_segoe-ui_normal", "Arial", sans-serif;">
+		<div class="head">
+			<span
+						style="background: #07b107; color: #fff; font-size: 20px !important; border-radius: 4px 4px 4px 4px; padding: 2px 6px 3px 6px; margin-right: 3px; font-weight:600">Job</span><span
+						style="background: #35434E; color: #07b107; font-size: 20px !important; font-weight:600">Desire</span>
+		</div>
+		<div class="body">
+			<div class="resp">
+				<h5>Dear Job Seeker,</h5>
+			</div>
+			<div class="cont">
+				<p>As a prospective response to your job alert posted by you, please find the below relevant jobs posted by the employers,</p>
+				
+				<div class="sub-title">Job Posting</div>
+				<ul class="sub-mrg-content">
+										
+				</ul>
+			</div>
+
+		</div>
+		<div class="footer">
+			<div class="footer-reg">
+				Warm Regards<br /> Jobdesire.co.uk
+			</div>
+			<!-- <div class="quas">
+				For more clarifications, ping us at  <b>info@jobdesire.co.uk</b>
+			</div> --->
+		</div>
+	</div>
+    <div class="footerBottom">
+                    Copyright @ 2018 Jobdesire.co.uk | All Rights Reserved
+					  
+		</div>
+</div>
+</body></html>

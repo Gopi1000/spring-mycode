@@ -1,0 +1,140 @@
+<html>
+<head>
+<style type="text/css">
+.vm-container {
+	margin: 10px;
+}
+.vm-page-content {
+	border: 1px solid #2a3f54;
+	height: 150%;
+	color: #000;
+}
+
+.vm-page-content .head {
+	background-color: #2a3f54;
+	padding: 10px;
+	color: #FFFFFF;
+}
+
+.head .images {
+	margin-left: 10px;
+}
+
+.vm-page-content .body {
+	padding: 10px;
+	font-size: 12px;
+}
+.resp{
+margin: 5px 0px;
+}
+.resp h5 {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.body .cont p {
+	margin: 0 0 8px;
+	text-align: justify;
+	line-height: 20px;
+}
+
+.sub-title {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.sub-mrg-content {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-left: 30px;
+}
+.sub-mrg-content li{
+line-height: 25px;
+}
+.btn{
+padding: 10px;
+background:  #2a3f54;
+color: #ffffff;
+margin: 5px;
+text-align: center;
+border-radius:3px;
+}
+.footer {
+	padding: 10px;
+	background: #fff;
+}
+.footer-reg{
+font-size: 12px;
+	color: #000;
+	font-weight: 600;
+	line-height: 20px;
+}
+.footer .quas {
+	margin-top: 20px;
+	font-size: 12px;
+}
+</style>
+</head>
+<body>
+<div class="vm-container">
+	<div class="vm-page-content">
+		<div class="head">
+			<div class="images">
+				<img src="cid:imagess"alt="MyJobKart"/>
+			</div>
+		</div>
+		<div class="body">
+			<div class="resp">
+				<h5>Dear ${fname},</h5>
+			</div>
+			<div class="cont">
+				<p>Thanks for registering with MyJobKart.com. Your account has been created successfully.</p>
+
+</p>
+				<p>Please click the below link for account activation. </p>
+					<a href ="${url}${email}"><div class="btn" style="width:180px;">
+					Activate Your Account</div>
+					</a>
+                    <p>Be an active member of MyJobkart.com by</p>
+                    <ul class="sub-mrg-content">
+                   
+<li>Profile Creation</li>
+<li>Uploading Resume.</li>
+</ul>
+<p>
+We are highly privileged in consistently engaging with you by sourcing better and apt job opportunities in accordance with your soft and technical skills.
+</p>
+                    
+                    
+				<div class="sub-title">Why Profile Creation is important?</div>
+				<ul class="sub-mrg-content">
+					<li>Profile creation enables you to be an active member of MyJobkart.com by utilizing its significant services offered like </li>
+					<li>Apply for a Job- You can apply for a job in accordance with your skills, profession and experience.</li>
+					
+                    <li>Create Job Alert- You can create an alert for a job pertaining to your key skills, location, experience, Job Type and Role.</li>
+                    
+                <li>Employer View History- It is a visibility for you to view the employer who had shown interest in your profile. </li>
+                <li>Find Jobs- You can best choose a job juxtaposed based on your preferred location, skills/job title and experience.</li>
+                <li>Manage Following- You can track/ follow your preferred organization's recruitment.</li>
+                <li>Save Job- You can save your prioritized jobs for future reference.</li>
+               </ul>
+			
+            <div class="sub-title">Enhanced Service :</div>
+            <p>    You can create infinite number of profiles coping up with various industries and different platforms and activate your most preferred one at a time.</p>
+            
+            </div>
+
+		</div>
+		<div class="footer">
+			<div class="footer-reg">
+				Warm Regards<br /> MyJobKart.com
+			</div>
+			<div class="quas">
+				For more clarifications, ping us at info.myjobkart@gmail.com.</b>
+			</div>
+		</div>
+	</div>
+</div>
+</body></html>
+

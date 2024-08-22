@@ -1,0 +1,28 @@
+JobSeekerChangePassword=http://www.myjobkart.com/jobseeker-change-password.html?emailId=
+JobSeekerActivation= http://www.myjobkart.com/jobseeker-activation.html?emailId=
+EmployerChangePassword=http://www.myjobkart.com/employer-change-password.html?emailId=
+EmployerActivation= http://www.myjobkart.com/employer-activation.html?emailId=
+AdminCompanyView=http://www.myjobkart.com/admin-company-view.html
+ShortList="Expected Salary:- /n Currently Working in:- /n Preferred Location:- /n Updated Resume:- /n Experience Details:- ";
+website=http://www.myjobkart.com/
+
+#download.Resume=d\:\\reports\\JobseekerProfileMainReport.jrxml
+#download.subReport=d\:\\reports\\JobseekerProfileSubReport.jrxml
+path.sitemap=E:/sitemap.properties
+download.Resume=/usr/local/myjobkart/JobseekerProfileMainReport.jrxml
+download.subReport=/usr/local/myjobkart/JobseekerProfileSubReport.jrxml
+#path.sitemap=/usr/local/myjobkart/sitemap.properties
+
+
+
+#download.jobseekertemplate=E\:\\Myjobkart\\Upload\\JobseekerUpload.xlsx
+#download.employertemplate=E\:\\Myjobkart\\Upload\\EmployerUpload.xlsx
+#download.jobposttemplate=E\:\\Myjobkart\\Upload\\jobpostupload.xlsx
+#download.adminjobposttemplate=E\:\\Myjobkart\\Upload\\adminjobpostupload.xlsx
+
+#download.jobseekertemplate=/usr/local/myjobkart/JobseekerUpload.xlsx
+ownload.employertemplate=/usr/local/myjobkart/EmployerUpload.xlsx
+download.jobposttemplate=/usr/local/myjobkart/jobpostupload.xlsx
+download.adminjobposttemplate=/usr/local/myjobkart/adminjobpostupload.xlsx
+
+

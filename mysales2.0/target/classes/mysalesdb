@@ -1,0 +1,444 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.15
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema mysales
+--
+
+CREATE DATABASE IF NOT EXISTS mysales;
+USE mysales;
+
+--
+-- Definition of table `access_log`
+--
+
+DROP TABLE IF EXISTS `access_log`;
+CREATE TABLE `access_log` (
+  `logId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `accessDate` datetime DEFAULT NULL,
+  `access_Id` bigint(20) DEFAULT NULL,
+  `clientIP` varchar(255) DEFAULT NULL,
+  `sessionId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`logId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `access_log`
+--
+
+/*!40000 ALTER TABLE `access_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `access_log` ENABLE KEYS */;
+
+
+--
+-- Definition of table `campaign`
+--
+
+DROP TABLE IF EXISTS `campaign`;
+CREATE TABLE `campaign` (
+  `campaignId` int(11) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) NOT NULL,
+  `version` int(11) NOT NULL,
+  `campaign_mode` varchar(255) DEFAULT NULL,
+  `campaign_Name` varchar(50) NOT NULL,
+  `campaign_owner` varchar(255) DEFAULT NULL,
+  `end_Time` datetime NOT NULL,
+  `isDelete` tinyint(1) DEFAULT NULL,
+  `product_name` varchar(255) DEFAULT NULL,
+  `started_Time` datetime NOT NULL,
+  `loginId` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`campaignId`),
+  KEY `FK_kvun5xiovos7gi36cxh6ge1ey` (`loginId`),
+  CONSTRAINT `FK_kvun5xiovos7gi36cxh6ge1ey` FOREIGN KEY (`loginId`) REFERENCES `login` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `campaign`
+--
+
+/*!40000 ALTER TABLE `campaign` DISABLE KEYS */;
+INSERT INTO `campaign` (`campaignId`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`campaign_mode`,`campaign_Name`,`campaign_owner`,`end_Time`,`isDelete`,`product_name`,`started_Time`,`loginId`) VALUES 
+ (1,'2020-12-26 18:15:08',0,'2020-12-26 18:15:12',0,1,'Sms','Softtwig','selva','2020-12-31 00:00:00',0,'Myjobbie','2020-12-01 00:00:00',2),
+ (2,'2020-12-26 19:16:49',0,'2020-12-26 19:16:49',0,0,'Sms','Sarath','Karthi','2020-12-30 00:00:00',1,'Softtwig','2020-12-15 00:00:00',2),
+ (3,'2020-12-26 19:19:28',0,'2020-12-26 19:19:28',0,0,'Sms','Sarath','Karthi','2020-12-30 00:00:00',0,'Softtwig','2020-12-09 00:00:00',2),
+ (4,'2020-12-26 19:23:09',0,'2020-12-26 19:23:09',0,0,'Sms','Sarath','Karthi','2020-12-31 00:00:00',1,'Myjobbie','2020-12-02 00:00:00',2),
+ (5,'2020-12-28 18:44:04',0,'2020-12-28 18:44:04',0,0,'WhatsApp','so','selva','2020-12-30 00:00:00',1,'Schooloptima','2020-12-02 00:00:00',2);
+/*!40000 ALTER TABLE `campaign` ENABLE KEYS */;
+
+
+--
+-- Definition of table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
+  `companiesId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) NOT NULL,
+  `version` int(11) NOT NULL,
+  `adminChecked` tinyint(1) DEFAULT NULL,
+  `companies_name` varchar(255) DEFAULT NULL,
+  `company_profile` text,
+  `contact_no` bigint(20) DEFAULT NULL,
+  `email_address` varchar(255) DEFAULT NULL,
+  `imageName` varchar(255) DEFAULT NULL,
+  `is_active_invitation` tinyint(1) DEFAULT NULL,
+  `isDeleted` tinyint(1) NOT NULL,
+  `mobile_no` bigint(20) DEFAULT NULL,
+  `rank` int(11) NOT NULL,
+  PRIMARY KEY (`companiesId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company`
+--
+
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+
+
+--
+-- Definition of table `customer`
+--
+
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) NOT NULL,
+  `version` int(11) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `assigned_to` bigint(20) DEFAULT NULL,
+  `companyLogo` longblob,
+  `company_Name` varchar(255) DEFAULT NULL,
+  `company_Type` varchar(255) DEFAULT NULL,
+  `contact_Number` varchar(255) DEFAULT NULL,
+  `deletedBy` bigint(20) NOT NULL,
+  `deletedDate` datetime DEFAULT NULL,
+  `email_Id` varchar(255) DEFAULT NULL,
+  `first_Name` varchar(255) DEFAULT NULL,
+  `industry_Type` varchar(255) DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT NULL,
+  `isDelete` tinyint(1) DEFAULT NULL,
+  `last_Name` varchar(255) DEFAULT NULL,
+  `migration` tinyint(1) DEFAULT NULL,
+  `mobile_Number` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `termsConditionsAgreed` tinyint(1) DEFAULT NULL,
+  `update_status` tinyint(1) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `adminId` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_p4ctv78y9a4o01uxr5d3du5t` (`adminId`),
+  CONSTRAINT `FK_p4ctv78y9a4o01uxr5d3du5t` FOREIGN KEY (`adminId`) REFERENCES `login` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` (`id`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`address`,`assigned_to`,`companyLogo`,`company_Name`,`company_Type`,`contact_Number`,`deletedBy`,`deletedDate`,`email_Id`,`first_Name`,`industry_Type`,`isActive`,`isDelete`,`last_Name`,`migration`,`mobile_Number`,`status`,`termsConditionsAgreed`,`update_status`,`website`,`adminId`) VALUES 
+ (1,'2020-12-26 00:00:00',1,'2020-12-26 00:00:00',2,2,'Chennai.',1,NULL,'TATa Industries',NULL,'7708591981',0,NULL,'jai@gmail.com','Jai','IT/Software',1,1,'S',0,'7708591981','opened',NULL,0,'www.softtwig.com',2),
+ (2,'2020-12-26 00:00:00',1,'2020-12-26 00:00:00',2,2,'Chennai.',1,NULL,'TATa Industries',NULL,'8489235302',0,NULL,'admin@gmail.com','Arunp','Automobile',1,1,'P',0,'9047558415','opened',NULL,0,'www.softtwig.com',2),
+ (3,'2020-12-26 00:00:00',1,'2020-12-26 00:00:00',2,2,'Chennai.',1,NULL,'TATa Industries',NULL,'9047558411',0,NULL,'suresh.scube@gmail.com','Suresh','Automobile',1,1,'P',0,'9047558411','opened',NULL,0,'www.zoho.com',2),
+ (4,'2020-12-26 00:00:00',1,'2020-12-26 00:00:00',1,0,'Chennai.',1,NULL,'softtwig',NULL,'8489235301',0,NULL,'selva.softtwig@gmail.com','Arun','Automobile',1,0,'S',0,'8489235301',NULL,NULL,0,'www.softtwig.com',2);
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `customer_update_status`
+--
+
+DROP TABLE IF EXISTS `customer_update_status`;
+CREATE TABLE `customer_update_status` (
+  `updateid` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `description` text,
+  `admin_id` bigint(20) DEFAULT NULL,
+  `customer_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`updateid`),
+  KEY `FK_5ylnhkkxiwh5ulung2nmb1x8i` (`admin_id`),
+  KEY `FK_eub25xhc44lh1h9f3fe78hks9` (`customer_id`),
+  CONSTRAINT `FK_5ylnhkkxiwh5ulung2nmb1x8i` FOREIGN KEY (`admin_id`) REFERENCES `login` (`id`),
+  CONSTRAINT `FK_eub25xhc44lh1h9f3fe78hks9` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_update_status`
+--
+
+/*!40000 ALTER TABLE `customer_update_status` DISABLE KEYS */;
+INSERT INTO `customer_update_status` (`updateid`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`date`,`description`,`admin_id`,`customer_id`) VALUES 
+ (1,'2020-12-29 11:13:30',0,'2020-12-29 11:13:30',0,0,'12/30/2020','I had the initial meet with client and got the appointment for Jan 1 2021. I will followup with customer and track.',1,4),
+ (2,'2020-12-29 11:14:36',0,'2020-12-29 11:14:36',0,0,'12/31/2020','Demo has been planned on 2Jan 2021, there will be multiple stakeholders who will review the demo.',1,4);
+/*!40000 ALTER TABLE `customer_update_status` ENABLE KEYS */;
+
+
+--
+-- Definition of table `email_management`
+--
+
+DROP TABLE IF EXISTS `email_management`;
+CREATE TABLE `email_management` (
+  `sendId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `emailAddress` varchar(255) DEFAULT NULL,
+  `mail_to` bigint(20) DEFAULT NULL,
+  `mail_by` bigint(20) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`sendId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email_management`
+--
+
+/*!40000 ALTER TABLE `email_management` DISABLE KEYS */;
+/*!40000 ALTER TABLE `email_management` ENABLE KEYS */;
+
+
+--
+-- Definition of table `leads`
+--
+
+DROP TABLE IF EXISTS `leads`;
+CREATE TABLE `leads` (
+  `leads_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) NOT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) NOT NULL,
+  `version` int(11) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) DEFAULT NULL,
+  `contactNo` varchar(255) DEFAULT NULL,
+  `emailAddress` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `industry_type` varchar(255) DEFAULT NULL,
+  `isDelete` tinyint(1) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `mobileNo` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `campaign_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`leads_id`),
+  KEY `FK_mtm5mpn6mxcvbvprh3cyt2giw` (`campaign_id`),
+  CONSTRAINT `FK_mtm5mpn6mxcvbvprh3cyt2giw` FOREIGN KEY (`campaign_id`) REFERENCES `campaign` (`campaignId`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `leads`
+--
+
+/*!40000 ALTER TABLE `leads` DISABLE KEYS */;
+INSERT INTO `leads` (`leads_id`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`address`,`company_name`,`contactNo`,`emailAddress`,`first_name`,`industry_type`,`isDelete`,`last_name`,`mobileNo`,`website`,`campaign_id`) VALUES 
+ (1,'2020-12-26 18:15:57',0,'2020-12-26 18:15:57',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','','8489235302','arun.softtwig@gmail.com','Arun','',1,'S','8489235302','',1),
+ (2,'2020-12-26 18:17:33',0,'2020-12-26 18:17:33',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','TATa Industries','8489235302','arun.softtwig@gmail.com','Arun','Automobile',1,'P','8489235302','www.softtwig.com',1),
+ (3,'2020-12-26 18:38:26',0,'2020-12-26 18:38:26',0,0,'Chennai.','softtwig','8489235301','jai1@gmail.com','Jai','IT/Software',1,'S','8489235301','www.softtwig.com',1),
+ (4,'2020-12-26 18:39:21',0,'2020-12-26 18:39:21',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','TATa Industries','8489235302','jai1@gmail.com','Jai','Automobile',1,'S','8489235302','www.softtwig.com',1),
+ (5,'2020-12-26 18:42:25',0,'2020-12-26 18:42:25',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','TATa Industries','8489235302','jai1@gmail.com','Jai','Automobile',1,'S','8489235302','www.softtwig.com',1),
+ (6,'2020-12-26 18:47:55',0,'2020-12-26 18:47:55',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','IBM','9688737455','kamaraj@gmail.com','Kamaraj','IT/Software',0,'P','9688737455','www.softtwig.com',1),
+ (7,'2020-12-26 18:59:08',0,'2020-12-26 18:59:08',0,0,'Chennai.','ZOHO','9047558414','udai@gmail.com','Udai','IT/Software',1,'S','9047558414','www.zoho.com',1),
+ (8,'2020-12-29 10:28:10',0,'2020-12-29 10:28:10',0,0,'Plot No.87B,1st floor,5th cross Street,Annai velankanni nagar,madhanandapuram,chennai-600125','softtwig','9047558415','jai1@gmail.com','Suresh','IT/Software',1,'P','9047558415','www.softtwig.com',1),
+ (9,'2020-12-29 10:34:35',0,'2020-12-29 10:34:35',0,0,'Chennai.','TATa Industries','8489235302','arunp@gmail.com','Arun','Automobile',1,'P','9047558415','www.softtwig.com',1),
+ (10,'2020-12-29 10:37:43',0,'2020-12-29 10:37:43',0,0,'Chennai.','TATa Industries','8489235302','jai1@gmail.com','Jai','Automobile',0,'S','9047558415','www.softtwig.com',1);
+/*!40000 ALTER TABLE `leads` ENABLE KEYS */;
+
+
+--
+-- Definition of table `login`
+--
+
+DROP TABLE IF EXISTS `login`;
+CREATE TABLE `login` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `confirmpassword` varchar(255) DEFAULT NULL,
+  `email_Id` varchar(255) DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT NULL,
+  `isDelete` tinyint(1) DEFAULT NULL,
+  `mobileno` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `usertype` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+/*!40000 ALTER TABLE `login` DISABLE KEYS */;
+INSERT INTO `login` (`id`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`confirmpassword`,`email_Id`,`isActive`,`isDelete`,`mobileno`,`name`,`password`,`usertype`) VALUES 
+ (1,'2020-12-25 00:00:00',0,'2020-12-25 00:00:00',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','admin@gmail.com',1,0,'9884720323','selva','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','admin'),
+ (2,'2020-12-26 18:14:33',0,'2020-12-26 18:14:33',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','prakash@gmail.com',1,0,'7708591980','prakash','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','campaign'),
+ (3,'2020-12-28 20:56:01',0,'2020-12-28 20:56:01',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','udhay@gmail.com',1,1,'7708591980','Udhay','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','marketing'),
+ (4,'2020-12-28 20:58:22',0,'2020-12-28 20:58:22',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','sathri@gmail.com',1,0,'6369709210','Sathri','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','sales'),
+ (5,'2020-12-28 21:04:59',0,'2020-12-28 21:04:59',0,0,'8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','karthi@gmail.com',1,0,'9078654338','karthikeyan','8sbMBUhbt42n1zMl4xQewEc6RBM1ib0qxeAq+/FP8+uvZt1pM/RTQBBILhKN1fI5','campaign');
+/*!40000 ALTER TABLE `login` ENABLE KEYS */;
+
+
+--
+-- Definition of table `login_status`
+--
+
+DROP TABLE IF EXISTS `login_status`;
+CREATE TABLE `login_status` (
+  `login_status_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created` datetime DEFAULT NULL,
+  `createdBy` bigint(20) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `modifiedBy` bigint(20) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `activity` varchar(255) DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `user_type` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`login_status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login_status`
+--
+
+/*!40000 ALTER TABLE `login_status` DISABLE KEYS */;
+INSERT INTO `login_status` (`login_status_id`,`created`,`createdBy`,`modified`,`modifiedBy`,`version`,`activity`,`end_time`,`start_time`,`status`,`user_type`,`user_name`) VALUES 
+ (1,'2020-12-26 18:13:20',0,'2020-12-26 18:13:20',0,0,'logout','2021-01-29 11:56:11','2021-01-26 18:13:20',0,'Admin','admin@gmail.com'),
+ (2,'2020-12-26 18:26:17',0,'2020-12-26 18:26:17',0,0,'login','2021-01-26 18:26:17','2021-01-26 18:26:17',1,'Admin','admin@gmail.com'),
+ (3,'2020-12-26 18:37:40',0,'2020-12-26 18:37:40',0,0,'login','2021-01-26 18:37:40','2021-01-26 18:37:40',1,'Admin','admin@gmail.com'),
+ (4,'2020-12-26 18:47:07',0,'2020-12-26 18:47:07',0,0,'login','2021-01-26 18:47:07','2021-01-26 18:47:07',1,'Admin','admin@gmail.com'),
+ (5,'2020-12-26 18:54:35',0,'2020-12-26 18:54:35',0,0,'login','2021-01-26 18:54:35','2021-01-26 18:54:35',1,'Admin','admin@gmail.com'),
+ (6,'2020-12-26 18:58:15',0,'2020-12-26 18:58:15',0,0,'login','2021-01-26 18:58:15','2021-01-26 18:58:15',1,'Admin','admin@gmail.com'),
+ (7,'2020-12-26 19:08:25',0,'2020-12-26 19:08:25',0,0,'login','2021-01-26 19:08:25','2021-01-26 19:08:25',1,'Admin','admin@gmail.com'),
+ (8,'2020-12-26 19:15:23',0,'2020-12-26 19:15:23',0,0,'login','2021-01-26 19:15:23','2021-01-26 19:15:23',1,'Admin','admin@gmail.com'),
+ (9,'2020-12-26 19:19:12',0,'2020-12-26 19:19:12',0,0,'login','2021-01-26 19:19:12','2021-01-26 19:19:12',1,'Admin','admin@gmail.com'),
+ (10,'2020-12-26 19:22:50',0,'2020-12-26 19:22:50',0,0,'login','2021-01-26 19:22:50','2021-01-26 19:22:50',1,'Admin','admin@gmail.com'),
+ (11,'2020-12-26 19:35:31',0,'2020-12-26 19:35:31',0,0,'login','2021-01-26 19:35:31','2021-01-26 19:35:31',1,'Admin','admin@gmail.com'),
+ (12,'2020-12-26 19:39:11',0,'2020-12-26 19:39:11',0,0,'login','2021-01-26 19:39:11','2021-01-26 19:39:11',1,'Admin','admin@gmail.com'),
+ (13,'2020-12-26 19:51:03',0,'2020-12-26 19:51:03',0,0,'login','2021-01-26 19:51:03','2021-01-26 19:51:03',1,'Admin','admin@gmail.com'),
+ (14,'2020-12-28 10:36:05',0,'2020-12-28 10:36:05',0,0,'login','2021-01-28 10:36:05','2021-01-28 10:36:05',1,'Admin','admin@gmail.com'),
+ (15,'2020-12-28 11:29:48',0,'2020-12-28 11:29:48',0,0,'login','2021-01-28 11:29:48','2021-01-28 11:29:48',1,'Admin','admin@gmail.com'),
+ (16,'2020-12-28 11:45:56',0,'2020-12-28 11:45:56',0,0,'login','2021-01-28 11:45:56','2021-01-28 11:45:56',1,'Admin','admin@gmail.com'),
+ (17,'2020-12-28 11:53:18',0,'2020-12-28 11:53:18',0,0,'login','2021-01-28 11:53:18','2021-01-28 11:53:18',1,'Admin','admin@gmail.com'),
+ (18,'2020-12-28 12:15:29',0,'2020-12-28 12:15:29',0,0,'login','2021-01-28 12:15:29','2021-01-28 12:15:29',1,'Admin','admin@gmail.com'),
+ (19,'2020-12-28 12:24:41',0,'2020-12-28 12:24:41',0,0,'login','2021-01-28 12:24:41','2021-01-28 12:24:41',1,'Admin','admin@gmail.com'),
+ (20,'2020-12-28 12:41:21',0,'2020-12-28 12:41:21',0,0,'login','2021-01-28 12:41:21','2021-01-28 12:41:21',1,'Admin','admin@gmail.com'),
+ (21,'2020-12-28 12:54:47',0,'2020-12-28 12:54:47',0,0,'login','2021-01-28 12:54:47','2021-01-28 12:54:47',1,'Admin','admin@gmail.com'),
+ (22,'2020-12-28 13:00:05',0,'2020-12-28 13:00:05',0,0,'login','2021-01-28 13:00:05','2021-01-28 13:00:05',1,'Admin','admin@gmail.com'),
+ (23,'2020-12-28 13:20:30',0,'2020-12-28 13:20:30',0,0,'login','2021-01-28 13:20:30','2021-01-28 13:20:30',1,'Admin','admin@gmail.com'),
+ (24,'2020-12-28 13:22:24',0,'2020-12-28 13:22:24',0,0,'login','2021-01-28 13:22:24','2021-01-28 13:22:24',1,'Admin','admin@gmail.com'),
+ (25,'2020-12-28 13:40:05',0,'2020-12-28 13:40:05',0,0,'login','2021-01-28 13:40:05','2021-01-28 13:40:05',1,'Admin','admin@gmail.com'),
+ (26,'2020-12-28 13:42:46',0,'2020-12-28 13:42:46',0,0,'login','2021-01-28 13:42:46','2021-01-28 13:42:46',1,'Admin','admin@gmail.com'),
+ (27,'2020-12-28 16:18:34',0,'2020-12-28 16:18:34',0,0,'login','2021-01-28 16:18:34','2021-01-28 16:18:34',1,'Admin','admin@gmail.com'),
+ (28,'2020-12-28 16:39:20',0,'2020-12-28 16:39:20',0,0,'login','2021-01-28 16:39:20','2021-01-28 16:39:20',1,'Admin','admin@gmail.com'),
+ (29,'2020-12-28 16:45:59',0,'2020-12-28 16:45:59',0,0,'login','2021-01-28 16:45:59','2021-01-28 16:45:59',1,'Admin','admin@gmail.com'),
+ (30,'2020-12-28 16:48:17',0,'2020-12-28 16:48:17',0,0,'login','2021-01-28 16:48:17','2021-01-28 16:48:17',1,'Admin','admin@gmail.com'),
+ (31,'2020-12-28 16:51:47',0,'2020-12-28 16:51:47',0,0,'login','2021-01-28 16:51:47','2021-01-28 16:51:47',1,'Admin','admin@gmail.com'),
+ (32,'2020-12-28 17:00:12',0,'2020-12-28 17:00:12',0,0,'login','2021-01-28 17:00:12','2021-01-28 17:00:12',1,'Admin','admin@gmail.com'),
+ (33,'2020-12-28 17:10:00',0,'2020-12-28 17:10:00',0,0,'login','2021-01-28 17:10:00','2021-01-28 17:10:00',1,'Admin','admin@gmail.com'),
+ (34,'2020-12-28 17:13:07',0,'2020-12-28 17:13:07',0,0,'login','2021-01-28 17:13:07','2021-01-28 17:13:07',1,'Admin','admin@gmail.com'),
+ (35,'2020-12-28 17:35:38',0,'2020-12-28 17:35:38',0,0,'login','2021-01-28 17:35:38','2021-01-28 17:35:38',1,'Admin','admin@gmail.com'),
+ (36,'2020-12-28 17:43:21',0,'2020-12-28 17:43:21',0,0,'login','2021-01-28 17:43:21','2021-01-28 17:43:21',1,'Admin','admin@gmail.com'),
+ (37,'2020-12-28 17:53:15',0,'2020-12-28 17:53:15',0,0,'login','2021-01-28 17:53:15','2021-01-28 17:53:15',1,'Admin','admin@gmail.com'),
+ (38,'2020-12-28 17:58:48',0,'2020-12-28 17:58:48',0,0,'login','2021-01-28 17:58:48','2021-01-28 17:58:48',1,'Admin','admin@gmail.com'),
+ (39,'2020-12-28 18:12:12',0,'2020-12-28 18:12:12',0,0,'login','2021-01-28 18:12:12','2021-01-28 18:12:12',1,'Admin','admin@gmail.com'),
+ (40,'2020-12-28 18:49:47',0,'2020-12-28 18:49:47',0,0,'login','2021-01-28 18:49:47','2021-01-28 18:49:47',1,'Admin','admin@gmail.com'),
+ (41,'2020-12-28 19:00:00',0,'2020-12-28 19:00:00',0,0,'login','2021-01-28 19:00:00','2021-01-28 19:00:00',1,'Admin','admin@gmail.com'),
+ (42,'2020-12-28 19:08:16',0,'2020-12-28 19:08:16',0,0,'login','2021-01-28 19:08:16','2021-01-28 19:08:16',1,'Admin','admin@gmail.com'),
+ (43,'2020-12-28 19:36:33',0,'2020-12-28 19:36:33',0,0,'login','2021-01-28 19:36:33','2021-01-28 19:36:33',1,'Admin','admin@gmail.com'),
+ (44,'2020-12-28 19:57:02',0,'2020-12-28 19:57:02',0,0,'login','2021-01-28 19:57:02','2021-01-28 19:57:02',1,'Admin','admin@gmail.com'),
+ (45,'2020-12-28 20:19:51',0,'2020-12-28 20:19:51',0,0,'login','2021-01-28 20:19:51','2021-01-28 20:19:51',1,'Admin','admin@gmail.com'),
+ (46,'2020-12-28 20:26:00',0,'2020-12-28 20:26:00',0,0,'login','2021-01-28 20:26:00','2021-01-28 20:26:00',1,'Admin','admin@gmail.com'),
+ (47,'2020-12-28 20:31:18',0,'2020-12-28 20:31:18',0,0,'login','2021-01-28 20:31:18','2021-01-28 20:31:18',1,'Admin','admin@gmail.com'),
+ (48,'2020-12-28 21:04:23',0,'2020-12-28 21:04:23',0,0,'login','2021-01-28 21:04:23','2021-01-28 21:04:23',1,'Admin','admin@gmail.com'),
+ (49,'2020-12-29 09:58:09',0,'2020-12-29 09:58:09',0,0,'login','2021-01-29 09:58:09','2021-01-29 09:58:09',1,'Admin','admin@gmail.com'),
+ (50,'2020-12-29 10:10:13',0,'2020-12-29 10:10:13',0,0,'login','2021-01-29 10:10:13','2021-01-29 10:10:13',1,'Admin','admin@gmail.com'),
+ (51,'2020-12-29 10:13:05',0,'2020-12-29 10:13:05',0,0,'login','2021-01-29 10:13:05','2021-01-29 10:13:05',1,'Admin','admin@gmail.com'),
+ (52,'2020-12-29 10:27:28',0,'2020-12-29 10:27:28',0,0,'login','2021-01-29 10:27:28','2021-01-29 10:27:28',1,'Admin','admin@gmail.com'),
+ (53,'2020-12-29 10:33:45',0,'2020-12-29 10:33:45',0,0,'login','2021-01-29 10:33:45','2021-01-29 10:33:45',1,'Admin','admin@gmail.com'),
+ (54,'2020-12-29 10:40:48',0,'2020-12-29 10:40:48',0,0,'login','2021-01-29 10:40:48','2021-01-29 10:40:48',1,'Admin','admin@gmail.com'),
+ (55,'2020-12-29 10:50:03',0,'2020-12-29 10:50:03',0,0,'login','2021-01-29 10:50:03','2021-01-29 10:50:03',1,'Admin','admin@gmail.com'),
+ (56,'2020-12-29 10:51:09',0,'2020-12-29 10:51:09',0,0,'login','2021-01-29 10:51:09','2021-01-29 10:51:09',1,'Admin','admin@gmail.com'),
+ (57,'2020-12-29 10:52:08',0,'2020-12-29 10:52:08',0,0,'login','2021-01-29 10:52:08','2021-01-29 10:52:08',1,'Admin','admin@gmail.com'),
+ (58,'2020-12-29 10:56:23',0,'2020-12-29 10:56:23',0,0,'login','2021-01-29 10:56:23','2021-01-29 10:56:23',1,'Admin','admin@gmail.com'),
+ (59,'2020-12-29 11:00:08',0,'2020-12-29 11:00:08',0,0,'login','2021-01-29 11:00:08','2021-01-29 11:00:08',1,'Admin','admin@gmail.com'),
+ (60,'2020-12-29 11:11:02',0,'2020-12-29 11:11:02',0,0,'login','2021-01-29 11:11:02','2021-01-29 11:11:02',1,'Admin','admin@gmail.com'),
+ (61,'2020-12-29 11:52:16',0,'2020-12-29 11:52:16',0,0,'login','2021-01-29 11:52:16','2021-01-29 11:52:16',1,'Admin','admin@gmail.com'),
+ (62,'2020-12-29 11:56:12',0,'2020-12-29 11:56:12',0,0,'login','2021-01-29 11:56:12','2021-01-29 11:56:12',1,'Admin','admin@gmail.com'),
+ (63,'2020-12-29 12:01:06',0,'2020-12-29 12:01:06',0,0,'login','2021-01-29 12:01:06','2021-01-29 12:01:06',1,'Admin','admin@gmail.com');
+/*!40000 ALTER TABLE `login_status` ENABLE KEYS */;
+
+
+--
+-- Definition of table `user_role`
+--
+
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role` (
+  `user_role_id` int(11) DEFAULT NULL,
+  `user_role_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_role`
+--
+
+/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+INSERT INTO `user_role` (`user_role_id`,`user_role_name`) VALUES 
+ (1,'Admin'),
+ (2,'Campaign'),
+ (3,'MARKETING'),
+ (4,'MARKETING');
+/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

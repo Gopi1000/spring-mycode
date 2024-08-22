@@ -1,0 +1,768 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.15
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema eassesment
+--
+
+CREATE DATABASE IF NOT EXISTS eassesment;
+USE eassesment;
+
+--
+-- Definition of table `answer`
+--
+
+DROP TABLE IF EXISTS `answer`;
+CREATE TABLE `answer` (
+  `answer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `correctanswer_flag` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`answer_id`),
+  KEY `FK_answer_1` (`question_id`),
+  CONSTRAINT `FK_answer_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `answer`
+--
+
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+INSERT INTO `answer` (`answer_id`,`question_id`,`answer`,`correctanswer_flag`) VALUES 
+ (1,1,' public class ABC extends QWE extends Student',0),
+ (2,1,' int i=\"A\";',0),
+ (3,1,'String s=\"Hello\";',1),
+ (4,1,' private class ABC',0),
+ (5,2,'class',0),
+ (6,2,'interface',0),
+ (7,2,'extends',0),
+ (8,2,'abstraction',1),
+ (9,3,'Java is platform specific',0),
+ (10,3,'Java does not support multiple inheritance',1),
+ (11,3,'Java does not run on Linux and Mac',0),
+ (12,3,'Java is not a multi-threaded language ',0),
+ (13,4,'Thread',0),
+ (14,4,'Runnable',1),
+ (15,4,'Date',0),
+ (16,4,'Calendar',0),
+ (17,5,'Sun',0),
+ (18,5,'Oracle',1),
+ (19,5,'Adobe',0),
+ (20,5,'Google',0),
+ (21,6,'First Generation Languages',0),
+ (22,6,'Second Generation Languages',0),
+ (23,6,'Third Generation Languages',1),
+ (24,6,'Fourth Generation Languages',0),
+ (25,7,'java.net',0),
+ (26,7,'javax.swing',0),
+ (27,7,'java.io',0),
+ (28,7,'java.lang',1),
+ (29,8,'servlet-mapping',1),
+ (30,8,'servlet-registration',0),
+ (31,8,'servlet-entry',0),
+ (32,8,'servlet-attachment',0),
+ (33,9,'32 bit',1),
+ (34,9,'16 bit',0),
+ (35,9,'64 bit',0),
+ (36,9,'Runtime specific',0),
+ (37,10,'true',0),
+ (38,10,'false',1),
+ (39,10,'1',0),
+ (40,10,'0',0),
+ (41,11,'countw',0),
+ (42,11,' wcount',0),
+ (43,11,'wc',1),
+ (44,11,' count p',0),
+ (45,12,'rdir',0),
+ (46,12,'remove',0),
+ (47,12,'rd',0),
+ (48,12,'rmdir',1),
+ (49,13,'dm',0),
+ (50,13,'rm',1),
+ (51,13,'delete',0),
+ (52,13,'erase',0),
+ (53,14,'SPARC',0),
+ (54,14,'IBM-compatible',0),
+ (55,14,'Macintosh',1),
+ (56,14,'Alpha',0),
+ (57,15,'grep',1),
+ (58,15,'mail',0),
+ (59,15,'mesg',0),
+ (60,15,'write',0),
+ (61,16,'lpd',0),
+ (62,16,'lpr',1),
+ (63,16,'lpq',0),
+ (64,16,'lpc',0),
+ (65,17,'shebang',0),
+ (66,17,'hashbang',0),
+ (67,17,'Script Initialiser',0),
+ (68,17,'1 and 2 is correct',1),
+ (69,18,'Debian',1),
+ (70,18,'Ubuntu',0),
+ (71,18,'Fedora',0),
+ (72,18,'Mint',0),
+ (73,19,'w',1),
+ (74,19,'x',0),
+ (75,19,'t',0),
+ (76,19,'All of the above',0),
+ (77,20,'Gnu?s not Unix',1),
+ (78,20,'Geek Needed Unix',0),
+ (79,20,'General Unix',0),
+ (80,20,'None of the Above',0);
+/*!40000 ALTER TABLE `answer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `candidate_competancy`
+--
+
+DROP TABLE IF EXISTS `candidate_competancy`;
+CREATE TABLE `candidate_competancy` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `category_id` bigint(20) unsigned DEFAULT NULL,
+  `sub_category_id` bigint(20) unsigned DEFAULT NULL,
+  `progress` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_candidate_competancy_1` (`user_id`),
+  KEY `FK_candidate_competancy_2` (`category_id`),
+  KEY `FK_candidate_competancy_3` (`sub_category_id`),
+  CONSTRAINT `FK_candidate_competancy_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_candidate_competancy_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  CONSTRAINT `FK_candidate_competancy_3` FOREIGN KEY (`sub_category_id`) REFERENCES `subcategory` (`subcategory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `candidate_competancy`
+--
+
+/*!40000 ALTER TABLE `candidate_competancy` DISABLE KEYS */;
+INSERT INTO `candidate_competancy` (`id`,`user_id`,`category_id`,`sub_category_id`,`progress`) VALUES 
+ (1,2,1,1,7.04002),
+ (2,2,1,2,7.04002),
+ (3,1,1,3,15);
+/*!40000 ALTER TABLE `candidate_competancy` ENABLE KEYS */;
+
+
+--
+-- Definition of table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `category_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` (`category_id`,`category`) VALUES 
+ (1,'javac'),
+ (2,'oops'),
+ (3,'Java Collections'),
+ (4,'java');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+
+
+--
+-- Definition of table `marked_question`
+--
+
+DROP TABLE IF EXISTS `marked_question`;
+CREATE TABLE `marked_question` (
+  `question_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`question_id`),
+  KEY `FK_marked_question_2` (`user_id`),
+  CONSTRAINT `FK_marked_question_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_marked_question_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `marked_question`
+--
+
+/*!40000 ALTER TABLE `marked_question` DISABLE KEYS */;
+/*!40000 ALTER TABLE `marked_question` ENABLE KEYS */;
+
+
+--
+-- Definition of table `professor`
+--
+
+DROP TABLE IF EXISTS `professor`;
+CREATE TABLE `professor` (
+  `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_no` bigint(20) unsigned NOT NULL,
+  `user_type` varchar(45) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `professor`
+--
+
+/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+INSERT INTO `professor` (`user_id`,`user_name`,`password`,`email`,`phone_no`,`user_type`) VALUES 
+ (1,'udhay','1234','sathya@gmail.com',546465656,'Professor');
+/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+
+
+--
+-- Definition of table `question_category_subcategory`
+--
+
+DROP TABLE IF EXISTS `question_category_subcategory`;
+CREATE TABLE `question_category_subcategory` (
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `category_id` bigint(20) unsigned DEFAULT NULL,
+  `subcategory_id` bigint(20) unsigned DEFAULT NULL,
+  KEY `FK_question_test_category_1` (`question_id`),
+  KEY `FK_question_test_category_2` (`category_id`),
+  KEY `FK_question_test_category_3` (`subcategory_id`),
+  CONSTRAINT `FK_question_test_category_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_question_test_category_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  CONSTRAINT `FK_question_test_category_3` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategory` (`subcategory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `question_category_subcategory`
+--
+
+/*!40000 ALTER TABLE `question_category_subcategory` DISABLE KEYS */;
+INSERT INTO `question_category_subcategory` (`question_id`,`category_id`,`subcategory_id`) VALUES 
+ (1,1,1),
+ (2,1,1),
+ (3,1,1),
+ (4,1,1),
+ (5,1,1),
+ (6,1,1),
+ (7,1,1),
+ (8,1,1),
+ (9,1,1),
+ (10,1,1),
+ (11,2,2),
+ (12,2,2),
+ (13,2,2),
+ (14,2,2),
+ (15,2,2),
+ (16,2,2),
+ (17,2,2),
+ (18,2,2),
+ (19,2,2),
+ (20,2,2),
+ (32,3,3),
+ (33,3,3),
+ (34,3,3),
+ (35,3,3),
+ (36,3,3),
+ (37,3,3),
+ (38,3,3),
+ (39,3,3),
+ (40,3,3),
+ (41,3,3),
+ (42,4,4),
+ (43,4,4),
+ (44,4,4),
+ (45,4,4),
+ (46,4,4),
+ (47,4,4),
+ (48,4,4),
+ (49,4,4),
+ (50,4,4),
+ (51,4,4),
+ (52,3,3),
+ (53,3,3),
+ (54,3,3),
+ (55,3,3),
+ (56,3,3),
+ (57,3,3),
+ (58,3,3),
+ (59,3,3),
+ (60,3,3),
+ (61,3,3),
+ (62,3,3),
+ (63,3,3),
+ (64,3,3),
+ (65,3,3),
+ (66,3,3),
+ (67,3,3),
+ (68,3,3),
+ (69,3,3),
+ (70,3,3),
+ (71,3,3);
+/*!40000 ALTER TABLE `question_category_subcategory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `question_competancy`
+--
+
+DROP TABLE IF EXISTS `question_competancy`;
+CREATE TABLE `question_competancy` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `total_attempts` bigint(30) unsigned DEFAULT NULL,
+  `correct_attempts` bigint(30) unsigned DEFAULT NULL,
+  `complecity` float DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_question_competancy_1` (`question_id`),
+  CONSTRAINT `FK_question_competancy_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `question_competancy`
+--
+
+/*!40000 ALTER TABLE `question_competancy` DISABLE KEYS */;
+INSERT INTO `question_competancy` (`id`,`question_id`,`total_attempts`,`correct_attempts`,`complecity`) VALUES 
+ (1,1,NULL,NULL,20),
+ (2,2,NULL,NULL,15),
+ (3,3,NULL,NULL,15),
+ (4,4,NULL,NULL,15),
+ (5,5,NULL,NULL,15),
+ (6,6,NULL,NULL,15),
+ (7,7,NULL,NULL,15),
+ (8,8,NULL,NULL,15),
+ (9,9,NULL,NULL,15),
+ (10,10,NULL,NULL,15),
+ (11,32,NULL,NULL,0),
+ (12,33,NULL,NULL,0),
+ (13,34,NULL,NULL,0),
+ (14,35,NULL,NULL,0),
+ (15,36,NULL,NULL,0),
+ (16,37,NULL,NULL,0),
+ (17,38,NULL,NULL,0),
+ (18,39,NULL,NULL,0),
+ (19,40,NULL,NULL,0),
+ (20,41,NULL,NULL,0),
+ (21,42,NULL,NULL,0),
+ (22,43,NULL,NULL,0),
+ (23,44,NULL,NULL,0),
+ (24,45,NULL,NULL,0),
+ (25,46,NULL,NULL,0),
+ (26,47,NULL,NULL,0),
+ (27,48,NULL,NULL,0),
+ (28,49,NULL,NULL,0),
+ (29,50,NULL,NULL,0),
+ (30,51,NULL,NULL,0),
+ (31,52,NULL,NULL,0),
+ (32,53,NULL,NULL,0),
+ (33,54,NULL,NULL,0),
+ (34,55,NULL,NULL,0),
+ (35,56,NULL,NULL,0),
+ (36,57,NULL,NULL,0),
+ (37,58,NULL,NULL,0),
+ (38,59,NULL,NULL,0),
+ (39,60,NULL,NULL,0),
+ (40,61,NULL,NULL,0),
+ (41,62,NULL,NULL,0),
+ (42,63,NULL,NULL,0),
+ (43,64,NULL,NULL,0),
+ (44,65,NULL,NULL,0),
+ (45,66,NULL,NULL,0),
+ (46,67,NULL,NULL,0),
+ (47,68,NULL,NULL,0),
+ (48,69,NULL,NULL,0),
+ (49,70,NULL,NULL,0),
+ (50,71,NULL,NULL,0);
+/*!40000 ALTER TABLE `question_competancy` ENABLE KEYS */;
+
+
+--
+-- Definition of table `questions`
+--
+
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE `questions` (
+  `question_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question` text,
+  `questiontype` varchar(255) DEFAULT NULL,
+  `question_flag` tinyint(1) NOT NULL,
+  PRIMARY KEY (`question_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `questions`
+--
+
+/*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+INSERT INTO `questions` (`question_id`,`question`,`questiontype`,`question_flag`) VALUES 
+ (1,'Which is the correct syntax',NULL,1),
+ (2,' Which of the following a is not a keyword in Java ?',NULL,0),
+ (3,'What is true about Java ?',NULL,0),
+ (4,'Which of the following is an interface ?',NULL,0),
+ (5,'Which company released Java Version 8 ?',NULL,0),
+ (6,'Java comes under which category of languages ?',NULL,0),
+ (7,'Which is the default package that is automatically visible to your program ?',NULL,0),
+ (8,'Which entry in WEB-INF is used to map a servlet ?',NULL,0),
+ (9,'What is the length of Java datatype int ?',NULL,0),
+ (10,'What is the default value of Java datatype boolean?',NULL,0),
+ (11,' ________ command is used to count the total number of lines, words and character in a file ?',NULL,0),
+ (12,' _______ command is used to remove the directory ?',NULL,0),
+ (13,'________ command is used to remove files ?',NULL,0),
+ (14,'_______ hardware architectures are not supported by Red Hat ?',NULL,0),
+ (15,'Which of the following is not a communication command ?',NULL,0),
+ (16,' What command is used to add printing jobs to the queue ?',NULL,0),
+ (17,'#!/bin/bash is commonly called as ',NULL,0),
+ (18,'_____ is the world?s largest non-commercial Linux distribution ',NULL,0),
+ (19,'Which of the following is a command in Linux ?',NULL,0),
+ (20,'What does GNU stands for ?',NULL,0),
+ (21,'What does the following code do?','text',0),
+ (22,'What gets printed? Assuming python version 2.x ?','text',0),
+ (23,'What is the output of the following code ?','text',0),
+ (24,'What gets printed  def f(): pass print type(f()) ?','text',0),
+ (25,'What should the below code print ?','text',0),
+ (26,'What is the output of the following code ?','text',0),
+ (27,'What is the output of the below program  a = [1,2,3,None,(),[],] print len(a)?','text',0),
+ (28,'What gets printed? Assuming python version 3.x ?','text',0),
+ (29,'What gets printed x = 4.5 y = 2 print x//y ?','text',0),
+ (30,'What gets printed nums = set([1,1,2,3,3,3,4]) print len(nums) ?','text',0),
+ (31,'What does the following code do?','text',0),
+ (32,'What does the following code do?','text',0),
+ (33,'What gets printed? Assuming python version 2.x ?','text',0),
+ (34,'What is the output of the following code ?','text',0),
+ (35,'What gets printed  def f(): pass print type(f()) ?','text',0),
+ (36,'What should the below code print ?','text',0),
+ (37,'What is the output of the following code ?','text',0),
+ (38,'What is the output of the below program  a = [1,2,3,None,(),[],] print len(a)?','text',0),
+ (39,'What gets printed? Assuming python version 3.x ?','text',0),
+ (40,'What gets printed x = 4.5 y = 2 print x//y ?','text',0),
+ (41,'What gets printed nums = set([1,1,2,3,3,3,4]) print len(nums) ?','text',0),
+ (42,'What does the following code do?','text',0),
+ (43,'What gets printed? Assuming python version 2.x ?','text',0),
+ (44,'What is the output of the following code ?','text',0),
+ (45,'What gets printed  def f(): pass print type(f()) ?','text',0),
+ (46,'What should the below code print ?','text',0),
+ (47,'What is the output of the following code ?','text',0),
+ (48,'What is the output of the below program  a = [1,2,3,None,(),[],] print len(a)?','text',0),
+ (49,'What gets printed? Assuming python version 3.x ?','text',0),
+ (50,'What gets printed x = 4.5 y = 2 print x//y ?','text',0),
+ (51,'What gets printed nums = set([1,1,2,3,3,3,4]) print len(nums) ?','text',0),
+ (52,'What does the following code do?','text',0),
+ (53,'What gets printed? Assuming python version 2.x ?','text',0),
+ (54,'What is the output of the following code ?','text',0),
+ (55,'What gets printed  def f(): pass print type(f()) ?','text',0),
+ (56,'What should the below code print ?','text',0),
+ (57,'What is the output of the following code ?','text',0),
+ (58,'What is the output of the below program  a = [1,2,3,None,(),[],] print len(a)?','text',0),
+ (59,'What gets printed? Assuming python version 3.x ?','text',0),
+ (60,'What gets printed x = 4.5 y = 2 print x//y ?','text',0),
+ (61,'What gets printed nums = set([1,1,2,3,3,3,4]) print len(nums) ?','text',0),
+ (62,'What does the following code do?','text',0),
+ (63,'What gets printed? Assuming python version 2.x ?','text',0),
+ (64,'What is the output of the following code ?','text',0),
+ (65,'What gets printed  def f(): pass print type(f()) ?','text',0),
+ (66,'What should the below code print ?','text',0),
+ (67,'What is the output of the following code ?','text',0),
+ (68,'What is the output of the below program  a = [1,2,3,None,(),[],] print len(a)?','text',0),
+ (69,'What gets printed? Assuming python version 3.x ?','text',0),
+ (70,'What gets printed x = 4.5 y = 2 print x//y ?','text',0),
+ (71,'What gets printed nums = set([1,1,2,3,3,3,4]) print len(nums) ?','text',0);
+/*!40000 ALTER TABLE `questions` ENABLE KEYS */;
+
+
+--
+-- Definition of table `result`
+--
+
+DROP TABLE IF EXISTS `result`;
+CREATE TABLE `result` (
+  `result_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `test_type` varchar(45) DEFAULT NULL,
+  `question_id` bigint(20) unsigned DEFAULT NULL,
+  `user_selection` bigint(20) unsigned DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `test_id` bigint(20) unsigned DEFAULT NULL,
+  `total_timespent` varchar(45) NOT NULL,
+  `total_question` int(10) unsigned NOT NULL,
+  `testCount` int(10) unsigned NOT NULL,
+  `questionCount` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`result_id`),
+  KEY `FK_result_1` (`user_id`),
+  KEY `FK_result_2` (`question_id`),
+  KEY `FK_result_3` (`user_selection`) USING BTREE,
+  CONSTRAINT `FK_result_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
+  CONSTRAINT `FK_result_2` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_result_3` FOREIGN KEY (`user_selection`) REFERENCES `answer` (`answer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+/*!40000 ALTER TABLE `result` DISABLE KEYS */;
+INSERT INTO `result` (`result_id`,`user_id`,`test_type`,`question_id`,`user_selection`,`created_date`,`test_id`,`total_timespent`,`total_question`,`testCount`,`questionCount`) VALUES 
+ (1,2,'Basic',2,5,'2016-12-31 00:00:00',1,'0',0,0,0),
+ (2,2,'Basic',7,26,'2016-12-31 00:00:00',1,'0',0,0,0),
+ (3,2,'Basic',8,31,'2016-12-31 00:00:00',1,'0',0,0,0),
+ (4,2,'Basic',3,9,'2017-01-05 00:00:00',2,'0',0,0,0),
+ (5,2,'Basic',6,21,'2017-01-05 00:00:00',2,'0',0,0,0),
+ (6,2,'Basic',9,33,'2017-01-05 00:00:00',2,'0',0,0,0);
+/*!40000 ALTER TABLE `result` ENABLE KEYS */;
+
+
+--
+-- Definition of table `subcategory`
+--
+
+DROP TABLE IF EXISTS `subcategory`;
+CREATE TABLE `subcategory` (
+  `subcategory_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) DEFAULT NULL,
+  `subcategory` varchar(255) NOT NULL,
+  `priority` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`subcategory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+/*!40000 ALTER TABLE `subcategory` DISABLE KEYS */;
+INSERT INTO `subcategory` (`subcategory_id`,`category`,`subcategory`,`priority`) VALUES 
+ (1,'java Basics','1',1),
+ (2,'Java OOPS','2',2),
+ (3,'Java Collections','collection',3),
+ (4,'Java Networking','array',4),
+ (5,'Java String','4',5),
+ (6,'all','6',6);
+/*!40000 ALTER TABLE `subcategory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `test_answer`
+--
+
+DROP TABLE IF EXISTS `test_answer`;
+CREATE TABLE `test_answer` (
+  `answer_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` bigint(20) unsigned NOT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `test_id` bigint(20) unsigned NOT NULL,
+  `test_name` varchar(450) NOT NULL,
+  PRIMARY KEY (`answer_id`),
+  KEY `FK_text_answer_1` (`question_id`),
+  KEY `FK_text_answer_2` (`user_id`),
+  CONSTRAINT `FK_text_answer_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`question_id`),
+  CONSTRAINT `FK_text_answer_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test_answer`
+--
+
+/*!40000 ALTER TABLE `test_answer` DISABLE KEYS */;
+INSERT INTO `test_answer` (`answer_id`,`question_id`,`answer`,`user_id`,`test_id`,`test_name`) VALUES 
+ (1,32,'ddddd',2,0,''),
+ (2,32,'aaaaaaaaaaaaaaaaaa<br>',2,0,''),
+ (3,33,'bbbbbbbbbbb<br>',2,0,''),
+ (4,34,'ccccccccccc<br>',2,0,''),
+ (5,35,NULL,2,0,''),
+ (6,36,NULL,2,0,''),
+ (7,37,NULL,2,0,''),
+ (8,38,NULL,2,0,''),
+ (9,39,NULL,2,0,''),
+ (10,40,NULL,2,0,''),
+ (11,41,NULL,2,0,''),
+ (12,52,NULL,2,0,''),
+ (13,53,NULL,2,0,''),
+ (14,54,NULL,2,0,''),
+ (15,55,NULL,2,0,''),
+ (16,56,NULL,2,0,''),
+ (17,57,NULL,2,0,''),
+ (18,58,NULL,2,0,''),
+ (19,59,NULL,2,0,''),
+ (20,60,NULL,2,0,''),
+ (21,61,NULL,2,0,''),
+ (22,62,NULL,2,0,''),
+ (23,63,NULL,2,0,''),
+ (24,64,NULL,2,0,''),
+ (25,65,NULL,2,0,''),
+ (26,66,NULL,2,0,''),
+ (27,67,NULL,2,0,''),
+ (28,68,NULL,2,0,''),
+ (29,69,NULL,2,0,''),
+ (30,70,NULL,2,0,''),
+ (31,71,NULL,2,0,''),
+ (32,32,'aaaaaaaaaaaaaaaaaa<br>',2,0,''),
+ (33,33,'bbbbbbbbbbb<br>',2,0,''),
+ (34,34,'<br>',2,0,''),
+ (35,35,NULL,2,0,''),
+ (36,36,NULL,2,0,''),
+ (37,37,NULL,2,0,''),
+ (38,38,NULL,2,0,''),
+ (39,39,NULL,2,0,''),
+ (40,40,NULL,2,0,''),
+ (41,41,NULL,2,0,''),
+ (42,52,NULL,2,0,''),
+ (43,53,NULL,2,0,''),
+ (44,54,NULL,2,0,''),
+ (45,55,NULL,2,0,''),
+ (46,56,NULL,2,0,''),
+ (47,57,NULL,2,0,''),
+ (48,58,NULL,2,0,''),
+ (49,59,NULL,2,0,''),
+ (50,60,NULL,2,0,''),
+ (51,61,NULL,2,0,''),
+ (52,62,NULL,2,0,''),
+ (53,63,NULL,2,0,''),
+ (54,64,NULL,2,0,''),
+ (55,65,NULL,2,0,''),
+ (56,66,NULL,2,0,''),
+ (57,67,NULL,2,0,''),
+ (58,68,NULL,2,0,''),
+ (59,69,NULL,2,0,''),
+ (60,70,NULL,2,0,''),
+ (61,71,NULL,2,0,''),
+ (62,32,'<br>',2,1,'Java Collections - collection'),
+ (63,33,'<br>',2,1,'Java Collections - collection'),
+ (64,34,'<br>',2,1,'Java Collections - collection'),
+ (65,35,'<br>',2,1,'Java Collections - collection'),
+ (66,36,'<br>',2,1,'Java Collections - collection'),
+ (67,37,'<br>',2,1,'Java Collections - collection'),
+ (68,38,'<br>',2,1,'Java Collections - collection'),
+ (69,39,'<br>',2,1,'Java Collections - collection'),
+ (70,40,'<br>',2,1,'Java Collections - collection'),
+ (71,41,'<br>',2,1,'Java Collections - collection'),
+ (72,52,'<br>',2,1,'Java Collections - collection'),
+ (73,53,'<br>',2,1,'Java Collections - collection'),
+ (74,54,'<br>',2,1,'Java Collections - collection'),
+ (75,55,'<br>',2,1,'Java Collections - collection'),
+ (76,56,'<br>',2,1,'Java Collections - collection'),
+ (77,57,'<br>',2,1,'Java Collections - collection'),
+ (78,58,'<br>',2,1,'Java Collections - collection'),
+ (79,59,'<br>',2,1,'Java Collections - collection'),
+ (80,60,'<br>',2,1,'Java Collections - collection'),
+ (81,61,'<br>',2,1,'Java Collections - collection'),
+ (82,62,'<br>',2,1,'Java Collections - collection'),
+ (83,63,'<br>',2,1,'Java Collections - collection'),
+ (84,64,'<br>',2,1,'Java Collections - collection'),
+ (85,65,'<br>',2,1,'Java Collections - collection'),
+ (86,66,'<br>',2,1,'Java Collections - collection'),
+ (87,67,'<br>',2,1,'Java Collections - collection'),
+ (88,68,'<br>',2,1,'Java Collections - collection'),
+ (89,69,NULL,2,1,'Java Collections - collection'),
+ (90,70,NULL,2,1,'Java Collections - collection'),
+ (91,71,NULL,2,1,'Java Collections - collection');
+/*!40000 ALTER TABLE `test_answer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone_no` bigint(20) unsigned DEFAULT NULL,
+  `user_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`user_id`,`user_name`,`password`,`email`,`phone_no`,`user_type`) VALUES 
+ (1,'admin','admin','admin@gmail.com',9442559268,'Admin'),
+ (2,'deva','deva','deva@gmail.com',9999999999,'Candidate'),
+ (3,'yuvan','yuvan','yuvan@gmail.com',8888888888,'Candidate'),
+ (4,'sathya','sathya','sathya@gmail.com',948374364,'Candidate'),
+ (5,'yuvan','yuvan','yuvan@gmail.com',8888888888,'Candidate'),
+ (6,'selva','123456','selva.softtwig@gmail.com',9884720323,'Professor');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+DROP TABLE IF EXISTS `eassesment`.`test`;
+CREATE TABLE  `eassesment`.`test` (
+  `test_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` varchar(255) DEFAULT NULL,
+  `subcategory_id` varchar(255) DEFAULT NULL,
+  `self_rate` int(10) unsigned DEFAULT NULL,
+  `total_questions` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`test_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `eassesment`.`assign_test`;
+CREATE TABLE  `eassesment`.`assign_test` (
+  `assign_test_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `test_id` int(10) unsigned DEFAULT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`assign_test_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS eassesment.company;
+CREATE TABLE  eassesment.company (
+  user_id bigint(20) NOT NULL AUTO_INCREMENT,
+  companyName varchar(225) NOT NULL,
+  companyEmail varchar(225) NOT NULL,
+  companyContactNo bigint(20) DEFAULT NULL,
+  companyLocation varchar(225) NOT NULL,
+  companyWebsite varchar(225) NOT NULL,
+  companyPassword varchar(225) NOT NULL,
+  userType varchar(225) NOT NULL,
+  PRIMARY KEY (user_id)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+***Professor and user email uniqueconstraint query*****
+
+ALTER TABLE eassesment.professor
+ADD UNIQUE (email);
+
+ALTER TABLE eassesment.user
+ADD UNIQUE (email);
+
+******end*****************
+
+***result table added two columns*********
+ALTER TABLE eassesment.result
+ADD COLUMN flag VARCHAR(255),
+ADD COLUMN answer_status VARCHAR(255);
+
+***end***********************
+
+**company table unique added****
+ALTER TABLE eassesment.company
+ADD UNIQUE (companyEmail);
+
+ALTER TABLE eassesment.company
+ADD UNIQUE (companyWebsite);
+***end***

@@ -1,0 +1,114 @@
+package com.myjobkart.dao;
+
+import java.util.List;
+import com.myjobkart.bo.AdminUserBO;
+import com.myjobkart.exception.MyJobKartException;
+import com.myjobkart.vo.AccessLogVO;
+import com.myjobkart.vo.AdminLoginVO;
+import com.myjobkart.vo.EmailAccessVO;
+import com.myjobkart.vo.LoginStatusVO;
+
+/**
+ * @author Administrator
+ * @param <T>
+ * 
+ */
+public interface AdminDAO {
+
+	AdminLoginVO authendicate(String string, String emailAddress)
+			throws MyJobKartException;
+
+	public boolean createAccessLog(AccessLogVO logVO);
+
+	/**
+	 * @param adminVO
+	 * @return
+	 */
+	long createuser(AdminLoginVO adminVO) throws MyJobKartException;
+
+	/**
+	 * @param bo
+	 * @return
+	 */
+	long getusercount(AdminUserBO bo)throws MyJobKartException;
+
+	/**
+	 * @return
+	 */
+	List<AdminUserBO> retrieveUser()throws MyJobKartException;
+
+	/**
+	 * @param userVO
+	 * @return
+	 */
+	AdminLoginVO userStatus(AdminLoginVO userVO)throws MyJobKartException;
+
+	/**
+	 * @param vO
+	 * @return
+	 */
+	int deleteProfile(AdminLoginVO vo)throws MyJobKartException;
+
+	/**
+	 * @param userBO
+	 * @return
+	 */
+	
+
+	/**
+	 * @param loginVO
+	 * @return
+	 */
+	AdminLoginVO updateuser(AdminLoginVO loginVO) throws MyJobKartException;
+	
+	AdminLoginVO getuserId(AdminUserBO adminBO) throws MyJobKartException;
+
+	/**
+	 * @param userId
+	 * @return
+	 */
+	AdminUserBO retrieveusers(long userId);
+
+	/**
+	 * @param string
+	 * @param emailAddress
+	 * @return
+	 */
+	AdminLoginVO findByEmail(String string, String emailAddress);
+
+	/**
+	 * @param emailAddress
+	 * @return
+	 */
+	boolean findEmployerEmail(String emailAddress);
+
+	/**
+	 * @param accessVOList
+	 */
+	EmailAccessVO saveEmailList(List<EmailAccessVO> accessVOList);
+
+	/**
+	 * @return
+	 */
+	List<String> getImageName();
+
+	/**
+	 * @param loginStatusVO
+	 * @return
+	 */
+	LoginStatusVO editLoginStatus(LoginStatusVO loginStatusVO);
+
+	/**
+	 * @param loginStatus
+	 * @return
+	 */
+	long addLoginStatus(LoginStatusVO loginStatus);
+
+	/**
+	 * @param loginVO
+	 * @param id
+	 * @return
+	 */
+	//AdminLoginVO updateuser(AdminLoginVO loginVO, long id) throws MyJobKartException;
+	
+}
